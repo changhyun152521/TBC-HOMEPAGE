@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+/* 상단 로고 */
+#top_logo img {
+    max-height: 38px;
+    width: auto;
+}
+
+#m_logo img {
+    max-height: 32px;
+    width: auto;
+}
+
+#allWrap .ci img {
+    max-height: 44px;
+    width: auto;
+}
+
+/* 전문 강사진 프로필 */
+#atc01 .inner .gall_box ul li .img {
+    background-size: contain;
+    background-color: #f0f5f5;
+}
+
+/* 교육 정보 미리보기 배너
+   img01(683x408) 표시 크기 유지 — 박스 583x408, 배너(1260x891)는 너비 맞춤·높이 crop, 확대 없음 */
+#atc03 .inner .right .bot .edu_banner_slide {
+    width: 583px;
+    max-width: 100%;
+    height: 408px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#atc03 .inner .right .bot .edu_banner_slide .swiper-wrapper,
+#atc03 .inner .right .bot .edu_banner_slide .swiper-slide {
+    height: 100%;
+}
+
+#atc03 .inner .right .bot .edu_banner_slide a {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#atc03 .inner .right .bot .edu_banner_slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+}
+
+@media (max-width: 1024px) {
+    #atc03 .inner .right .bot .edu_banner_slide {
+        width: 636px;
+        height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    #top_logo img {
+        max-height: 34px;
+    }
+
+    #atc03 .inner .right .bot .edu_banner_slide {
+        width: 509px;
+        height: 360px;
+    }
+}
+
+@media (max-width: 480px) {
+    #m_logo img {
+        max-height: 28px;
+    }
+
+    #atc03 .inner .right .bot .edu_banner_slide {
+        width: 382px;
+        height: 270px;
+    }
+}
+
+@media (max-width: 390px) {
+    #atc03 .inner .right .bot .edu_banner_slide {
+        width: 311px;
+        height: 220px;
+    }
+}
