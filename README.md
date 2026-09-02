@@ -48,8 +48,16 @@ npx serve .
 
 상단 우측 **상담신청** CTA 포함.
 
-## 다음 단계 (예정)
+## Vercel 배포
 
-- 실제 연락처·주소·사업자번호 반영
-- 서브 페이지 추가 (교육철학, 관·분원 상세 등)
-- Next.js + API + 관리자 페이지 연동
+1. [Vercel](https://vercel.com)에서 GitHub 저장소 `TBC-HOMEPAGE` 연결
+2. **Root Directory**를 `html예시파일`로 설정
+3. Framework Preset: **Other** (빌드 명령 없음)
+4. Deploy
+
+저장소: https://github.com/changhyun152521/TBC-HOMEPAGE
+
+## 포함된 파일
+
+- `html예시파일/` — 사이트 전체 (HTML, CSS, JS, 이미지)
+- `assets/` — 원본 로고, 배너, 폰트 보관함
