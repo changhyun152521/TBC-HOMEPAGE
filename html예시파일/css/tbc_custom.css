@@ -16,6 +16,32 @@
     width: auto;
 }
 
+/* footer */
+#sh_ft .inner .ft_cen .left img {
+    max-height: 32px;
+    width: auto;
+}
+
+#sh_ft .inner .ft_cen .left .ft_insta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+#sh_ft .inner .ft_cen .left .ft_insta:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+}
+
 /* 전문 강사진 프로필 */
 #atc01 .inner .gall_box ul li .img {
     background-size: contain;
