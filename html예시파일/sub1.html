@@ -24,7 +24,7 @@
 <body>
 
 <!-- sh_wrapper [s] -->
-<div id="sh_wrapper" class="sub">
+<div id="sh_wrapper" class="sub about">
 
     <!-- sh_hd [s] -->
     <header id="sh_hd">
@@ -46,8 +46,8 @@
                                 <a href="sub1.html">더브코</a>
                                 <ul>
                                     <li><a href="sub1.html">인사말</a> </li>
-                                    <li><a href="">교육철학</a> </li>
-                                    <li><a href="">연혁</a> </li>
+                                    <li><a href="about-philosophy.html">교육철학</a> </li>
+                                    <li><a href="about-history.html">연혁</a> </li>
                                 </ul>
                             </li>
                             <li class="list02">
@@ -61,6 +61,7 @@
                             <li class="list03">
                                 <a href="teachers.html">강사진</a>
                                 <ul>
+                                    <li><a href="teachers.html">전체 강사진</a> </li>
                                     <li><a href="teachers-korean.html">국어</a> </li>
                                     <li><a href="teachers-math.html">수학</a> </li>
                                     <li><a href="teachers-science.html">과학</a> </li>
@@ -161,8 +162,8 @@
                                 <button class="m_bmenu" type="button">더브코</button>
                                 <ul class="m_smenu">
                                     <li><a href="sub1.html">인사말</a> </li>
-                                    <li><a href="">교육철학</a> </li>
-                                    <li><a href="">연혁</a> </li>
+                                    <li><a href="about-philosophy.html">교육철학</a> </li>
+                                    <li><a href="about-history.html">연혁</a> </li>
                                 </ul>
                             </li>
                             <li>
@@ -176,6 +177,7 @@
                             <li>
                                 <button class="m_bmenu" type="button">강사진</button>
                                 <ul class="m_smenu">
+                                    <li><a href="teachers.html">전체 강사진</a> </li>
                                     <li><a href="teachers-korean.html">국어</a> </li>
                                     <li><a href="teachers-math.html">수학</a> </li>
                                     <li><a href="teachers-science.html">과학</a> </li>
@@ -244,10 +246,10 @@
                             <a href="sub1.html">인사말</a>
                         </li>
                         <li>
-                            <a href="">교육철학</a>
+                            <a href="about-philosophy.html">교육철학</a>
                         </li>
                         <li>
-                            <a href="">연혁</a>
+                            <a href="about-history.html">연혁</a>
                         </li>
                     </ul>
                 </div>
@@ -286,12 +288,10 @@
     
     <div id="sh_ft_btns">
         <div class="btns">
-            <a class="band" href="https://www.band.us/band/90118402/post" target="_blank" rel="noopener noreferrer"><img src="img/common/band_icon.svg" alt="">BAND 바로가기</a>
+            <a class="band" href="https://www.band.us/band/90118402/post" target="_blank" rel="noopener noreferrer">BAND 바로가기</a>
         </div>
     </div>
-    <a id="float_tel" href="https://www.band.us/band/90118402/post" class="" target="_blank" rel="noopener noreferrer" aria-label="BAND"><img src="img/common/band_icon.svg" alt="BAND"></a>
-
-    <!-- sh_ft [s] -->
+<!-- sh_ft [s] -->
     <footer id="sh_ft">
         <div class="inner">
             <div class="top">
@@ -330,13 +330,6 @@
 </div>
 
 <script>
-    $(window).on("scroll",function(){
-        if($(window).scrollTop() > 100) { 
-            $('#fix_tel').addClass('active');}
-        else{
-            $('#fix_tel').removeClass('active');}
-        return false;
-    });
     feather.replace()
     AOS.init();
 </script>

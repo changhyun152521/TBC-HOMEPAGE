@@ -61,33 +61,27 @@
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* 모바일 하단 BAND 바로가기 / 플로팅 버튼 */
+/* 모바일 하단 BAND 바로가기 */
 #sh_ft_btns a.band {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
     background-color: #00C73C;
     font-family: 'Noto Sans KR', sans-serif;
     letter-spacing: -0.3px;
 }
 
-#sh_ft_btns a.band img {
-    width: 22px;
-    height: 22px;
+/* 더브코 탭 — 모바일에서도 표시 */
+@media (max-width:1024px){
+#sh_wrapper.about #sh_aside{display:block !important}
+#sh_wrapper.about #sh_aside_wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#sh_wrapper.about #shSnb{display:flex;flex-wrap:nowrap;justify-content:flex-start;width:max-content;min-width:100%;margin:0 auto;padding:0 10px}
+#sh_wrapper.about #shSnb li{flex:0 0 auto}
+#sh_wrapper.about #shSnb li a{min-width:72px;height:48px;padding:0 14px;font-size:14px;line-height:48px;white-space:nowrap}
 }
-
-#float_tel {
-    overflow: hidden;
-    background-color: #00C73C !important;
-    line-height: 0;
-}
-
-#float_tel img {
-    display: block;
-    width: 28px;
-    height: 28px;
-    margin: 18.5px auto 0;
+@media (max-width:480px){
+#sh_wrapper.about #shSnb{padding:0 6px}
+#sh_wrapper.about #shSnb li a{min-width:64px;padding:0 12px;font-size:13px}
 }
 
 /* 전문 강사진 프로필 */
