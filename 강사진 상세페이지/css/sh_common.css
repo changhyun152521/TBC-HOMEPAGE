@@ -1,0 +1,30 @@
+@charset "utf-8";
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+@font-face{font-family:'GyeongbokgungSumunjangBodyText';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2511-3@1.0/Sumunjang_BodyL.woff2') format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:'GyeongbokgungSumunjangBodyText';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2511-3@1.0/Sumunjang_BodyM.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'GyeongbokgungSumunjangBodyText';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2511-3@1.0/Sumunjang_BodyB.woff2') format('woff2');font-weight:700;font-display:swap}
+
+/* ========================== 초기화 [s] */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block}
+body{line-height:1;font-family:var(--k-font)}
+ol, ul, dl, dt, dd{list-style:none}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
+input, button{margin:0;padding:0;font-family:var(--k-font)}
+input[type="submit"]{cursor:pointer}
+button{cursor:pointer}
+textarea, select{font-family:var(--k-font)}
+select{margin:0}
+a{color:#222;text-decoration:none}
+label, input, button, select, img{vertical-align:middle}
+body{font-size:0.81em}
+*, :after, :before{box-sizing:border-box}
+*{-webkit-text-size-adjust:none}
+.sound_only{display:inline-block !important;position:absolute;top:0;left:0;margin:0 !important;padding:0 !important;font-size:0;line-height:0;border:0 !important;overflow:hidden !important}
+h1, h2, h3, h4, h5, h6{font-family:var(--k-font)}
+/* ========================== 초기화 [e] */
+
+/* 공통 */
+:root{--mainsize:1300px;--k-font:'pretendard';--s-font:'GyeongbokgungSumunjangBodyText';--dark:#111}
