@@ -17,16 +17,29 @@
 }
 
 /* footer */
-#sh_ft .inner .ft_cen .left img {
-    max-height: 32px;
-    width: auto;
+#sh_ft .inner .ft_cen .left {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 16px;
 }
 
-#sh_ft .inner .ft_cen .left .ft_insta {
+#sh_ft .inner .ft_cen .left .ft_logo {
+    max-height: 32px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+#sh_ft .inner .ft_cen .left .ft_sns {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#sh_ft .inner .ft_cen .left .ft_sns a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: 18px;
     width: 36px;
     height: 36px;
     font-size: 20px;
@@ -36,10 +49,45 @@
     transition: all 0.2s;
 }
 
-#sh_ft .inner .ft_cen .left .ft_insta:hover {
+#sh_ft .inner .ft_cen .left .ft_sns a img {
+    display: block;
+    width: 18px;
+    height: 18px;
+}
+
+#sh_ft .inner .ft_cen .left .ft_sns a:hover {
     color: #fff;
     border-color: rgba(255, 255, 255, 0.6);
     background: rgba(255, 255, 255, 0.08);
+}
+
+/* 모바일 하단 BAND 바로가기 / 플로팅 버튼 */
+#sh_ft_btns a.band {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #00C73C;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -0.3px;
+}
+
+#sh_ft_btns a.band img {
+    width: 22px;
+    height: 22px;
+}
+
+#float_tel {
+    overflow: hidden;
+    background-color: #00C73C !important;
+    line-height: 0;
+}
+
+#float_tel img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin: 18.5px auto 0;
 }
 
 /* 전문 강사진 프로필 */

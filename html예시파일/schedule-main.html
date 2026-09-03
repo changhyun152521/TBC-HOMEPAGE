@@ -6,11 +6,11 @@
     <meta name="naver-site-verification" content=""/><!-- 네이버 소유확인 -->
     <meta name="description" content="대전·세종을 대표하는 교육 브랜드 더브레인코어"><!-- 사이트 설명문구 -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="강사진-수학">
+    <meta property="og:title" content="시간표-본원 시간표">
     <meta property="og:description" content="대전·세종을 대표하는 교육 브랜드 더브레인코어"><!-- 사이트 설명문구 -->
     <meta property="og:image" content="img/common/logo.png">
     <meta property="og:url" content="">
-	<title>강사진-수학</title>
+	<title>시간표-본원 시간표</title>
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/topmenu_script.js"></script>
@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="css/aos.css">
 	<link rel="stylesheet" href="css/sh_common.css"> 
     <link rel="stylesheet" href="css/sh_sub.css">
-    <link rel="stylesheet" href="css/members1005.css">
+    <link rel="stylesheet" href="css/schedule.css">
     <link rel="stylesheet" href="css/tbc_custom.css">        
 </head>
 <body>
 
 <!-- sh_wrapper [s] -->
-<div id="sh_wrapper" class="sub teachers">
+<div id="sh_wrapper" class="sub schedule">
 
     <!-- sh_hd [s] -->
     <header id="sh_hd">
@@ -229,8 +229,8 @@
                 <div id="shSubBnr">
                     <div class="sub_nav">
                         <p class="crumb" data-aos="fade-up" data-aos-delay="300">
-                            <a href="index.html"><i data-feather="home"></i></a>강사진 <i data-feather="chevron-right"></i>수학</p>
-                        <p class="tit" data-aos="fade-up" data-aos-delay="600">수학</p>
+                            <a href="index.html"><i data-feather="home"></i></a>시간표 <i data-feather="chevron-right"></i>본원</p>
+                        <p class="tit" data-aos="fade-up" data-aos-delay="600">본원 시간표</p>
                     </div>
                     <div id="mainImg" data-aos="fade-in" style="background-image:url(img/sub/bg_10.jpg);"></div>
                 </div>
@@ -242,22 +242,13 @@
 				<div id="sh_aside_wrapper">
                     <ul id="shSnb">
                         <li>
-                            <a href="teachers.html">전체</a>
-                        </li>
-                        <li>
-                            <a href="teachers-korean.html">국어</a>
+                            <a href="schedule.html">전체</a>
                         </li>
                         <li class="on">
-                            <a href="teachers-math.html">수학</a>
+                            <a href="schedule-main.html">본원</a>
                         </li>
                         <li>
-                            <a href="teachers-science.html">과학</a>
-                        </li>
-                        <li>
-                            <a href="teachers-english.html">영어</a>
-                        </li>
-                        <li>
-                            <a href="teachers-social.html">사회</a>
+                            <a href="schedule-branch.html">분원</a>
                         </li>
                     </ul>
                 </div>
@@ -267,112 +258,33 @@
             <!-- sh_content [s] -->
             <div id="sh_content">
                 <!-- 서브페이지 [s] -->
-                <div id="members1005">
-                    <div class="inner">
-                        <div class="tit_wrap">
-                            <h3 class="tit">실력과 진정성으로 검증된 강사진</h3>
-                            <p class="txt">
-                                더브레인코어의 강사진은 단순히 가르치는 사람이 아닌, 학생의 성장을 함께 설계하는 교육 파트너입니다.<br/>
-                                풍부한 현장 경험과 체계적인 커리큘럼을 바탕으로 학생 개개인에 맞는 최적의 학습 방향을 제시합니다.
-                            </p>
+                <div id="schedule1001" data-scope="main" data-academy="high">
+                    <div class="sch_head">
+                        <h3 class="sch_tit">본원 시간표</h3>
+                        <p class="sch_desc">관·분원과 학년을 선택하면 해당 시간표를 확인할 수 있습니다.</p>
+                    </div>
+
+                    <div class="sch_section">
+                        <strong class="sch_label">관·분원 선택</strong>
+                        <div class="sch_group" id="schGroupMain">
+                            <span class="sch_group_tit">본원</span>
+                            <div class="sch_academy_list" id="schAcademyMain"></div>
                         </div>
-                        <ul class="instructor_list">
-                            <li class="list02" id="teacher-song" data-aos="fade-up">
-                                <div class="img_box">
-                                    <ul class="bg_txt">
-                                        <li>수학</li>
-                                        <li>입시</li>
-                                    </ul>
-                                    <img src="img/sub/teacher2.png" alt="송형주 강사">
-                                </div>
-                                <div class="left_txt">
-                                    <div class="l_top">
-                                        <ul class="l_round_tit">
-                                            <li>수학</li>
-                                            <li>중등</li>
-                                            <li>고등</li>
-                                        </ul>
-                                        <div class="l_name_wrap">
-                                            <span class="subject">수학 / 중등·고등</span>
-                                            <b class="name">송형주 강사</b>
-                                        </div>
-                                    </div>
-                                    <ul class="l_btn_wrap">
-                                        <li><a href="#">커리큘럼 바로가기<i data-feather="chevron-right" class="icon"></i></a></li>
-                                        <li><a href="#">학습Q&A 바로가기<i data-feather="chevron-right" class="icon"></i></a></li>
-                                    </ul>
-                                    <p class="l_txt">막히던 수학이 풀리는 순간</p>
-                                </div>
-                                <div class="right_txt">
-                                    <ul class="r_history">
-                                        <li>
-                                            <span class="h_t_tit">전문 지도 분야</span>
-                                            <ul class="h_b_txt">
-                                                <li>내신 대비 심화·개념 완성</li>
-                                                <li>수능 고난도 문제 해결 전략</li>
-                                                <li>학생 수준별 맞춤 지도</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <span class="h_t_tit">학력 및 경력</span>
-                                            <ul class="h_b_txt">
-                                                <li>해당 과목 전문 지도</li>
-                                                <li>중등·고등 강의 경력</li>
-                                                <li>학생 맞춤형 학습 설계</li>
-                                                <li>더브레인코어 전문 강사</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>                            <li class="list01" id="teacher-kim" data-aos="fade-up">
-                                <div class="img_box">
-                                    <ul class="bg_txt">
-                                        <li>수학</li>
-                                        <li>내신</li>
-                                    </ul>
-                                    <img src="img/sub/teacher3.png" alt="김나영 강사">
-                                </div>
-                                <div class="left_txt">
-                                    <div class="l_top">
-                                        <ul class="l_round_tit">
-                                            <li>수학</li>
-                                            <li>중등</li>
-                                            <li>고등</li>
-                                        </ul>
-                                        <div class="l_name_wrap">
-                                            <span class="subject">수학 / 중등·고등</span>
-                                            <b class="name">김나영 강사</b>
-                                        </div>
-                                    </div>
-                                    <ul class="l_btn_wrap">
-                                        <li><a href="#">커리큘럼 바로가기<i data-feather="chevron-right" class="icon"></i></a></li>
-                                        <li><a href="#">학습Q&A 바로가기<i data-feather="chevron-right" class="icon"></i></a></li>
-                                    </ul>
-                                    <p class="l_txt">내신과 수능을 한 번에</p>
-                                </div>
-                                <div class="right_txt">
-                                    <ul class="r_history">
-                                        <li>
-                                            <span class="h_t_tit">전문 지도 분야</span>
-                                            <ul class="h_b_txt">
-                                                <li>내신 대비 심화·개념 완성</li>
-                                                <li>수능 고난도 문제 해결 전략</li>
-                                                <li>학생 수준별 맞춤 지도</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <span class="h_t_tit">학력 및 경력</span>
-                                            <ul class="h_b_txt">
-                                                <li>해당 과목 전문 지도</li>
-                                                <li>중등·고등 강의 경력</li>
-                                                <li>학생 맞춤형 학습 설계</li>
-                                                <li>더브레인코어 전문 강사</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="sch_group" id="schGroupBranch">
+                            <span class="sch_group_tit">분원</span>
+                            <div class="sch_academy_list" id="schAcademyBranch"></div>
+                        </div>
+                    </div>
+
+                    <div class="sch_section">
+                        <strong class="sch_label">학년 선택</strong>
+                        <div class="sch_grade_list" id="schGradeList"></div>
+                    </div>
+
+                    <div class="sch_result">
+                        <h4 class="sch_result_tit" id="schResultTit">시간표</h4>
+                        <ul class="sch_img_list" id="schImgList"></ul>
+                        <div class="sch_empty" id="schEmpty" style="display:none;"></div>
                     </div>
                 </div>
                 <!-- 서브페이지 [e] -->
@@ -442,5 +354,6 @@
     AOS.init();
 </script>
 
+    <script src="js/schedule.js"></script>
 </body>
 </html>
