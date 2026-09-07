@@ -59,8 +59,10 @@ npx serve .
 ## Vercel 배포
 
 1. [Vercel](https://vercel.com)에서 GitHub 저장소 `TBC-HOMEPAGE` 연결
-2. **Root Directory**를 `apps/web`로 설정
+2. **Root Directory**를 `apps/web`로 설정 (권장) 또는 기존 `html예시파일` 유지
 3. Framework Preset: **Other** (빌드 명령 없음)
 4. Deploy
+
+기존 `html예시파일` Root를 쓰는 경우, 수정은 `apps/web`에서 하고 `npm run sync:legacy`로 동기화합니다. 자세한 내용은 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 저장소: https://github.com/changhyun152521/TBC-HOMEPAGE

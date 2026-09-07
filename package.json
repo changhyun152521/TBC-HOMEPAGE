@@ -1,0 +1,8 @@
+{
+  "name": "tbc-homepage",
+  "private": true,
+  "scripts": {
+    "sync:legacy": "node scripts/sync-legacy-path.js",
+    "build": "node scripts/sync-legacy-path.js"
+  }
+}

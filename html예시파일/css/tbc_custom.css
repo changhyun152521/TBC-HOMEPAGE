@@ -1,0 +1,159 @@
+@charset "utf-8";
+
+/* 상단 로고 */
+#top_logo img {
+    max-height: 38px;
+    width: auto;
+}
+
+#m_logo img {
+    max-height: 32px;
+    width: auto;
+}
+
+#allWrap .ci img {
+    max-height: 44px;
+    width: auto;
+}
+
+/* footer */
+#sh_ft .inner .ft_cen .left {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 16px;
+}
+
+#sh_ft .inner .ft_cen .left .ft_logo {
+    max-height: 32px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+#sh_ft .inner .ft_cen .left .ft_sns {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#sh_ft .inner .ft_cen .left .ft_sns a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+#sh_ft .inner .ft_cen .left .ft_sns a img {
+    display: block;
+    width: 18px;
+    height: 18px;
+}
+
+#sh_ft .inner .ft_cen .left .ft_sns a:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* 모바일 하단 BAND 바로가기 */
+#sh_ft_btns a.band {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00C73C;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -0.3px;
+}
+
+/* 더브코 탭 — 모바일에서도 표시 */
+@media (max-width:1024px){
+#sh_wrapper.about #sh_aside{display:block !important}
+#sh_wrapper.about #sh_aside_wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#sh_wrapper.about #shSnb{display:flex;flex-wrap:nowrap;justify-content:flex-start;width:max-content;min-width:100%;margin:0 auto;padding:0 10px}
+#sh_wrapper.about #shSnb li{flex:0 0 auto}
+#sh_wrapper.about #shSnb li a{min-width:72px;height:48px;padding:0 14px;font-size:14px;line-height:48px;white-space:nowrap}
+}
+@media (max-width:480px){
+#sh_wrapper.about #shSnb{padding:0 6px}
+#sh_wrapper.about #shSnb li a{min-width:64px;padding:0 12px;font-size:13px}
+}
+
+/* 전문 강사진 프로필 */
+#atc01 .inner .gall_box ul li .img {
+    background-size: contain;
+    background-color: #f0f5f5;
+}
+
+/* 교육 정보 미리보기 배너
+   img01(683x408) 표시 크기 유지 — 박스 583x408, 배너(1260x891)는 너비 맞춤·높이 crop, 확대 없음 */
+#atc03 .inner .right .bot .edu_banner_slide {
+    width: 583px;
+    max-width: 100%;
+    height: 408px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#atc03 .inner .right .bot .edu_banner_slide .swiper-wrapper,
+#atc03 .inner .right .bot .edu_banner_slide .swiper-slide {
+    height: 100%;
+}
+
+#atc03 .inner .right .bot .edu_banner_slide a {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#atc03 .inner .right .bot .edu_banner_slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+}
+
+@media (max-width: 1024px) {
+    #atc03 .inner .right .bot .edu_banner_slide {
+        width: 636px;
+        height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    #top_logo img {
+        max-height: 34px;
+    }
+
+    #atc03 .inner .right .bot .edu_banner_slide {
+        width: 509px;
+        height: 360px;
+    }
+}
+
+@media (max-width: 480px) {
+    #m_logo img {
+        max-height: 28px;
+    }
+
+    #atc03 .inner .right .bot .edu_banner_slide {
+        width: 382px;
+        height: 270px;
+    }
+}
+
+@media (max-width: 390px) {
+    #atc03 .inner .right .bot .edu_banner_slide {
+        width: 311px;
+        height: 220px;
+    }
+}
