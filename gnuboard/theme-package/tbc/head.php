@@ -1,0 +1,5 @@
+<?php
+if (!defined('_GNUBOARD_')) exit;
+
+include_once(G5_THEME_PATH . '/head.sub.php');
+include_once(G5_THEME_PATH . '/nav.inc.php');

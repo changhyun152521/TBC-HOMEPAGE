@@ -1,242 +1,12 @@
-<!doctype html>
-<html lang="ko">
-<head>
-    <meta charset="utf-8">
-    <!-- 반응형 [s] -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta http-equiv="imagetoolbar" content="no">
-    <!-- 반응형 [e] -->
-    <meta name="naver-site-verification" content=""/><!-- 네이버 소유확인 -->
-    <meta name="description" content="대전·세종을 대표하는 교육 브랜드 더브레인코어"><!-- 사이트 설명문구 -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="더브레인코어">
-    <meta property="og:description" content="대전·세종을 대표하는 교육 브랜드 더브레인코어"><!-- 사이트 설명문구 -->
-    <meta property="og:image" content="img/open/open.png">
-    <meta property="og:image:width" content="1280">
-    <meta property="og:image:height" content="720">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="img/open/open.png">
-    <meta property="og:url" content="">
-	
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" href="img/open/favicon-32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="img/open/favicon-48.png" sizes="48x48">
-    <link rel="apple-touch-icon" href="img/open/apple-touch-icon.png">
-	<title>더브레인코어</title>
-    <script src="js/jquery-1.8.3.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/topmenu_script.js"></script>
-    <script src="js/swiper.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/feather.min.js"></script>
-    <link rel="stylesheet" href="css/swiper.min.css">
-    <link rel="stylesheet" href="css/sh_common.css">
-    <link rel="stylesheet" href="css/sh_main.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/tbc_custom.css">
-</head>
-<body>
-
-<!-- sh_wrapper [s] -->
-<div id="sh_wrapper" class="main">
-    
-    <!-- sh_hd [s] -->
-    <header id="sh_hd">
-    	<div id="sh_hd_wrapper">
-            
-            <div id="topmenu_wrapper">
-                <div id="topBnr">
-                    더브레인코어 입학 상담 접수 중 <a href="">상담신청</a>
-                </div>
-                <div id="shGnb" data-aos="fade-in">
-                    <!-- 로고 -->
-                    <div id="top_logo">
-                        <a href="index.html"><img src="img/common/logo.png" alt="더브레인코어"></a>
-                    </div>
-                    <!-- 상단메뉴 -->
-                    <nav class="sh_nav">
-                        <ul id="top_nav">
-                            <li class="list01">
-                                <a href="sub1.html">더브코</a>
-                                <ul>
-                                    <li><a href="sub1.html">인사말</a> </li>
-                                    <li><a href="about-philosophy.html">교육철학</a> </li>
-                                    <li><a href="about-history.html">연혁</a> </li>
-                                </ul>
-                            </li>
-                            <li class="list02">
-                                <a href="academies.html">관·분원</a>
-                                <ul>
-                                    <li><a href="academies.html">전체 관·분원</a> </li>
-                                    <li><a href="academies-main.html">본원 · 대전 둔산</a> </li>
-                                    <li><a href="academies-branch.html">분원 안내</a> </li>
-                                </ul>
-                            </li>
-                            <li class="list03">
-                                <a href="teachers.html">강사진</a>
-                                <ul>
-                                    <li><a href="teachers.html">전체 강사진</a> </li>
-                                    <li><a href="teachers-korean.html">국어</a> </li>
-                                    <li><a href="teachers-math.html">수학</a> </li>
-                                    <li><a href="teachers-science.html">과학</a> </li>
-                                    <li><a href="teachers-english.html">영어</a> </li>
-                                    <li><a href="teachers-social.html">사회</a> </li>
-                                </ul>
-                            </li>
-                            <li class="list04">
-                                <a href="schedule.html">시간표</a>
-                                <ul>
-                                    <li><a href="schedule.html">전체 시간표</a> </li>
-                                    <li><a href="schedule-main.html">본원 시간표</a> </li>
-                                    <li><a href="schedule-branch.html">분원 시간표</a> </li>
-                                </ul>
-                            </li>
-                            <li class="list05">
-                                <a href="">더브코 소식</a>
-                                <ul>
-                                    <li><a href="">공지사항</a> </li>
-                                    <li><a href="">교육정보</a> </li>
-                                    <li><a href="">수강후기</a> </li>
-                                </ul>
-                            </li>
-                            <li class="list06">
-                                <a href="">입학안내</a>
-                                <ul>
-                                    <li><a href="">상담신청</a> </li>
-                                    <li><a href="">입학절차</a> </li>
-                                    <li><a href="">FAQ</a> </li>
-                                </ul>
-                            </li>
-                                
-                        </ul>	
-                    </nav>
-                    <a href="" class="insta">상담신청</a>
-                </div>	
-                <div class="allmenu">
-                    <!-- 메뉴버튼 -->
-                    <div id="pfBtn" class="">
-                        <span></span>
-                    </div>
-                    <div id="allWrap" class="">
-                        <div class="inner">
-                            <div class="ci">
-                                <a href="index.html"><img src="img/common/logo.png" alt="더브레인코어"></a><p><span>하나의 교육 브랜드</span> 더브레인코어</p>
-                            </div>
-                            <div class="cont sitemap">
-                                <ul class="mn_img">
-                                    <li>
-                                        <a class="bmn" href="sub1.html">더브코</a>
-                                    </li>
-                                    <li>
-                                        <a class="bmn" href="academies.html">관·분원</a>
-                                    </li>
-                                    <li>
-                                        <a class="bmn" href="teachers.html">강사진</a>
-                                    </li>
-                                    <li>
-                                        <a class="bmn" href="schedule.html">시간표</a>
-                                    </li>
-                                    <li>
-                                        <a class="bmn" href="">더브코 소식</a>
-                                    </li>
-                                    <li>
-                                        <a class="bmn" href="">입학안내</a>
-                                    </li>
-                                                    
-                                </ul>
-                                <div class="right_img">
-                                    <img src="img/common/all_bg00.jpg" alt="메뉴배경">
-                                    <div class="txt">ⓒ 더브레인코어</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cs">
-                            <p class="tit">Contact us</p>
-                            <p class="add">대전광역시 서구 둔산동</p>
-                            <p class="tel">042-000-0000</p>
-                            <p class="etc">E-mail . info@thebraincore.co.kr</p>
-                            <ul class="sns">
-                                <li><a href=""><i class="fa fa-comments"></i></a></li>
-                                <li><a href=""><i class="fa fa-envelope"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 반응형메뉴 [s] -->
-            <div id="topmenuM">
-                <div id="m_logo"><a href="index.html"><img src="img/common/logo.png" alt="더브레인코어" /></a></div>
-                <!-- 메뉴 버튼 -->
-                <div id="m_navBtn"><span></span></div>
-                <!-- 오픈 메뉴 -->
-                <div id="navWrap">
-                    <div class="inner">
-                        <ul class="m_lnb">
-                            <li>
-                                <button class="m_bmenu" type="button">더브코</button>
-                                <ul class="m_smenu">
-                                    <li><a href="sub1.html">인사말</a> </li>
-                                    <li><a href="about-philosophy.html">교육철학</a> </li>
-                                    <li><a href="about-history.html">연혁</a> </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <button class="m_bmenu" type="button">관·분원</button>
-                                <ul class="m_smenu">
-                                    <li><a href="academies.html">전체 관·분원</a> </li>
-                                    <li><a href="academies-main.html">본원 · 대전 둔산</a> </li>
-                                    <li><a href="academies-branch.html">분원 안내</a> </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <button class="m_bmenu" type="button">강사진</button>
-                                <ul class="m_smenu">
-                                    <li><a href="teachers.html">전체 강사진</a> </li>
-                                    <li><a href="teachers-korean.html">국어</a> </li>
-                                    <li><a href="teachers-math.html">수학</a> </li>
-                                    <li><a href="teachers-science.html">과학</a> </li>
-                                    <li><a href="teachers-english.html">영어</a> </li>
-                                    <li><a href="teachers-social.html">사회</a> </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <button class="m_bmenu" type="button">시간표</button>
-                                <ul class="m_smenu">
-                                    <li><a href="schedule.html">전체 시간표</a> </li>
-                                    <li><a href="schedule-main.html">본원 시간표</a> </li>
-                                    <li><a href="schedule-branch.html">분원 시간표</a> </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <button class="m_bmenu" type="button">더브코 소식</button>
-                                <ul class="m_smenu">
-                                    <li><a href="">공지사항</a> </li>
-                                    <li><a href="">교육정보</a> </li>
-                                    <li><a href="">수강후기</a> </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <button class="m_bmenu" type="button">입학안내</button>
-                                <ul class="m_smenu">
-                                    <li><a href="">상담신청</a> </li>
-                                    <li><a href="">입학절차</a> </li>
-                                    <li><a href="">FAQ</a> </li>
-                                </ul>
-                            </li>
-                        </ul> 
-                        <p class="mo_hd_copy">ⓒ 더브레인코어</p>         
-                    </div>
-                </div>
-            </div>
-            <!-- 반응형메뉴 [e] -->
-        </div>           
-    </header>
-    <!-- sh_hd [e] -->
-
-    <!-- sh_container [s] -->
-    <main id="sh_container">
+<?php
+/**
+ * 메인 페이지 본문
+ * apps/web 에서 자동 생성 — 직접 수정 시 build 스크립트 재실행 시 덮어씌워집니다.
+ * 레이아웃·CSS 변경은 apps/web 에서 하고 npm run gnuboard:build 실행하세요.
+ */
+if (!defined('_GNUBOARD_')) exit;
+?>
+<main id="sh_container">
         <!-- sh_container_wrapper [s] -->
 		<div id="sh_container_wrapper">
 
@@ -251,7 +21,7 @@
                                     교육 브랜드 더브레인코어
                                 </h1>
                                 교육철학과 전문관 시스템으로 학생의 성장을 함께합니다.
-                                <a href="https://www.band.us/band/90118402/post" class="more" target="_blank" rel="noopener noreferrer">BAND 바로가기 <img src="img/main/main_deco.png" alt="메인데코"></a>
+                                <a href="https://www.band.us/band/90118402/post" class="more" target="_blank" rel="noopener noreferrer">BAND 바로가기 <img src="<?php echo G5_THEME_URL; ?>/img/main/main_deco.png" alt="메인데코"></a>
                             </div>
                             <div class="slide_wrap">
                                 <div class="swiper main_slide">
@@ -263,12 +33,12 @@
                                     <div class="arrow_btn">
                                         <div class="page_num"></div>
                                         <div class="controls">
-                                            <div class="btn_pager bnr-prev"><img src="img/main/arr_left.png" alt="prev"/></div>
+                                            <div class="btn_pager bnr-prev"><img src="<?php echo G5_THEME_URL; ?>/img/main/arr_left.png" alt="prev"/></div>
                                             <div class="play">
-                                                <div class="swiper-pause"><span class="material-symbols-outlined"><img src="img/main/stop_icon.png" alt="stop"/></span></div>
-                                                <div class="swiper-play"><span class="material-symbols-outlined"><img src="img/main/start_icon.png" alt="start" /></span></div>
+                                                <div class="swiper-pause"><span class="material-symbols-outlined"><img src="<?php echo G5_THEME_URL; ?>/img/main/stop_icon.png" alt="stop"/></span></div>
+                                                <div class="swiper-play"><span class="material-symbols-outlined"><img src="<?php echo G5_THEME_URL; ?>/img/main/start_icon.png" alt="start" /></span></div>
                                             </div> 
-                                            <div class="btn_pager bnr-next"><img src="img/main/arr_right.png" alt="next"/></div>
+                                            <div class="btn_pager bnr-next"><img src="<?php echo G5_THEME_URL; ?>/img/main/arr_right.png" alt="next"/></div>
                                         </div>
                                     </div>
                                 </div>
@@ -278,7 +48,7 @@
                             <div class="top_box">
                                 <div class="top_cont">
                                     <div class="tit">
-                                        <img src="img/main/main_shine.png" alt="메인전구"> 하나의 브랜드, 여러 전문관
+                                        <img src="<?php echo G5_THEME_URL; ?>/img/main/main_shine.png" alt="메인전구"> 하나의 브랜드, 여러 전문관
                                     </div>
                                     <h2 class="txt">
                                         대전·세종을 대표하는<br>
@@ -287,37 +57,37 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="academies.html">
+                                        <a href="<?php echo tbc_page_url('academies'); ?>">
                                             <div class="icon">
-                                                <img src="img/main/icon01.png" alt="관·분원">
-                                                <img src="img/main/icon01_on.png" class="img_on" alt="관·분원">
+                                                <img src="<?php echo G5_THEME_URL; ?>/img/main/icon01.png" alt="관·분원">
+                                                <img src="<?php echo G5_THEME_URL; ?>/img/main/icon01_on.png" class="img_on" alt="관·분원">
                                             </div>
                                             <p>관·분원</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="teachers.html">
+                                        <a href="<?php echo tbc_page_url('teachers'); ?>">
                                             <div class="icon">
-                                                <img src="img/main/icon02.png" alt="강사진">
-                                                <img src="img/main/icon02_on.png" class="img_on" alt="강사진">
+                                                <img src="<?php echo G5_THEME_URL; ?>/img/main/icon02.png" alt="강사진">
+                                                <img src="<?php echo G5_THEME_URL; ?>/img/main/icon02_on.png" class="img_on" alt="강사진">
                                             </div>
                                             <p>강사진</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="schedule.html">
+                                        <a href="<?php echo tbc_page_url('schedule'); ?>">
                                             <div class="icon">
-                                                <img src="img/main/icon03.png" alt="시간표">
-                                                <img src="img/main/icon03_on.png" class="img_on" alt="시간표">
+                                                <img src="<?php echo G5_THEME_URL; ?>/img/main/icon03.png" alt="시간표">
+                                                <img src="<?php echo G5_THEME_URL; ?>/img/main/icon03_on.png" class="img_on" alt="시간표">
                                             </div>
                                             <p>시간표</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="">
+                                        <a href="<?php echo tbc_board_url('consult'); ?>">
                                             <div class="icon">
-                                                <img src="img/main/icon04.png" alt="입학안내">
-                                                <img src="img/main/icon04_on.png" class="img_on" alt="입학안내">
+                                                <img src="<?php echo G5_THEME_URL; ?>/img/main/icon04.png" alt="입학안내">
+                                                <img src="<?php echo G5_THEME_URL; ?>/img/main/icon04_on.png" class="img_on" alt="입학안내">
                                             </div>
                                             <p>입학안내</p>
                                         </a>
@@ -348,19 +118,19 @@
                                     <ul class="swiper-wrapper">
                                         <li class="swiper-slide">
                                             <span class="sh_notice">
-                                                <a href="">더브레인코어 홈페이지가 새롭게 오픈하였습니다 !</a>
+                                                <a href="<?php echo tbc_board_url('consult'); ?>">더브레인코어 홈페이지가 새롭게 오픈하였습니다 !</a>
                                                 <p class="date">2025.02.25</p>
                                             </span>
                                         </li>
                                         <li class="swiper-slide">
                                             <span class="sh_notice">
-                                                <a href="">더브레인코어 홈페이지가 새롭게 오픈하였습니다 !</a>
+                                                <a href="<?php echo tbc_board_url('consult'); ?>">더브레인코어 홈페이지가 새롭게 오픈하였습니다 !</a>
                                                 <p class="date">2025.02.25</p>
                                             </span>
                                         </li>
                                         <li class="swiper-slide">
                                             <span class="sh_notice">
-                                                <a href="">더브레인코어 홈페이지가 새롭게 오픈하였습니다 !</a>
+                                                <a href="<?php echo tbc_board_url('consult'); ?>">더브레인코어 홈페이지가 새롭게 오픈하였습니다 !</a>
                                                 <p class="date">2025.02.21</p>
                                             </span>
                                         </li>
@@ -386,7 +156,7 @@
                                   },
                                 });
                               </script>
-                            <a href="" class="more">더보기 <i data-feather="plus"></i></a>
+                            <a href="<?php echo tbc_board_url('consult'); ?>" class="more">더보기 <i data-feather="plus"></i></a>
                         </div> 
                     </div>    
                 </div>
@@ -432,7 +202,7 @@
                 <article id="atc01">
                     <div class="inner">
                         <div class="top_box" data-aos="fade-down">
-                            <img src="img/main/inc01/img01.png" alt="메인이미지">
+                            <img src="<?php echo G5_THEME_URL; ?>/img/main/inc01/img01.png" alt="메인이미지">
                             <div class="ko_box">
                                 <p>하나의 교육 브랜드, 더브레인코어</p>
                                 <h2 class="tit">
@@ -446,35 +216,35 @@
                                 <div class="top_cont">
                                     <div class="tit_box">
                                         <h3 class="left" data-aos="fade-right">전문 강사진</h3>
-                                        <div class="right" data-aos="fade-left"><a href="teachers.html">강사진 전체 보기 <em><i data-feather="arrow-up-right"></i></em></a></div>
+                                        <div class="right" data-aos="fade-left"><a href="<?php echo tbc_page_url('teachers'); ?>">강사진 전체 보기 <em><i data-feather="arrow-up-right"></i></em></a></div>
                                     </div>
                                 </div>
                                 <div class="gall_box">
                                     <ul>
                                         <li>
                                             <a href="teachers-science.html#teacher-yun">
-                                                <div class="img" style="background-image:url(img/main/inc01/1.png)"></div>
+                                                <div class="img" style="background-image:url(<?php echo G5_THEME_URL; ?>/img/main/inc01/1.png)"></div>
                                                 <div class="cont">윤호진<span>과학</span>
                                                 </div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="teachers-math.html#teacher-song">
-                                                <div class="img" style="background-image:url(img/main/inc01/2.png)"></div>
+                                                <div class="img" style="background-image:url(<?php echo G5_THEME_URL; ?>/img/main/inc01/2.png)"></div>
                                                 <div class="cont">송형주<span>수학</span>
                                                 </div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="teachers-math.html#teacher-kim">
-                                                <div class="img" style="background-image:url(img/main/inc01/3.png)"></div>
+                                                <div class="img" style="background-image:url(<?php echo G5_THEME_URL; ?>/img/main/inc01/3.png)"></div>
                                                 <div class="cont">김나영<span>수학</span>
                                                 </div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="teachers-english.html#teacher-park">
-                                                <div class="img" style="background-image:url(img/main/inc01/4.png)"></div>
+                                                <div class="img" style="background-image:url(<?php echo G5_THEME_URL; ?>/img/main/inc01/4.png)"></div>
                                                 <div class="cont">박노준<span>영어</span>
                                                 </div>
                                             </a>
@@ -491,13 +261,13 @@
                                     <div class="review_box">
                                         <ul class=" n_lt">
                                             <li class="first">
-                                                <a href="">   
+                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                     <span class="sound_only">강의후기</span>
                                                 </a>
                                                 <div class="lt_cont_f">
-                                                    <a href="">
+                                                    <a href="<?php echo tbc_board_url('consult'); ?>">
                                                         <div class="left">
-                                                            <div class="icon"><img src="img/main/inc01/chat.png" alt="아이콘"></div>
+                                                            <div class="icon"><img src="<?php echo G5_THEME_URL; ?>/img/main/inc01/chat.png" alt="아이콘"></div>
                                                             <span class="date">02.21</span>
                                                         </div>
                                                         <div class="right">
@@ -505,11 +275,11 @@
                                                             <p class="subt">강사님들은 매우 친절하고, 개념을 쉽게 설명해주셔서 쉽게따라갈 수 있었습니다. 특히 매 수업마다 실생활에.....</p>
                                                         </div>
                                                     </a>
-                                                    <a href="" class="more">더보기 <i data-feather="plus"></i></a>
+                                                    <a href="<?php echo tbc_board_url('consult'); ?>" class="more">더보기 <i data-feather="plus"></i></a>
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="">   
+                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                     <span class="sound_only">강의후기</span>
                                                     <div class="lt_cont">
                                                         <p class="subj">언제나 친절하고 유익한 강의를 해주셔서 감사합니다 !</p>
@@ -518,7 +288,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">   
+                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                     <span class="sound_only">강의후기</span>
                                                     <div class="lt_cont">
                                                         <p class="subj">언제나 친절하고 유익한 강의를 해주셔서 감사합니다 !</p>
@@ -527,7 +297,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">   
+                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                     <span class="sound_only">강의후기</span>
                                                     <div class="lt_cont">
                                                         <p class="subj">언제나 친절하고 유익한 강의를 해주셔서 감사합니다 !</p>
@@ -536,7 +306,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">   
+                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                     <span class="sound_only">강의후기</span>
                                                     <div class="lt_cont">
                                                         <p class="subj">언제나 친절하고 유익한 강의를 해주셔서 감사합니다 !</p>
@@ -568,7 +338,7 @@
                 <article id="atc02">
                     <div class="inner">
                         <div class="left" data-aos="fade-right">
-                            <img src="img/main/inc02/img01.png" alt="캐릭터">
+                            <img src="<?php echo G5_THEME_URL; ?>/img/main/inc02/img01.png" alt="캐릭터">
                             <h2>체계적인 교육과정과
                                 전문관 시스템으로
                                 학생의 성장을 함께합니다</h2>
@@ -577,7 +347,7 @@
                                     <div class="ko_tit">초등부터 고등까지 !
                                         전문관별 맞춤
                                         교육과정</div>
-                                    <a href="" class="more"><span class="sound_only">커리큘럼</span><div class="icon"><i data-feather="arrow-up-right"></i></div></a>
+                                    <a href="<?php echo tbc_board_url('consult'); ?>" class="more"><span class="sound_only">커리큘럼</span><div class="icon"><i data-feather="arrow-up-right"></i></div></a>
                                 </div>
                             </div>
                         </div>
@@ -587,14 +357,14 @@
                                     <div class="ko_tit">더브레인코어와 함께
                                         성장의 여정을
                                         시작해보세요.</div>
-                                    <a href=""class="v_more"><img src="img/main/inc02/touch.png" alt="캐릭터">VIEW</a>
+                                    <a href="<?php echo tbc_board_url('consult'); ?>"class="v_more"><img src="<?php echo G5_THEME_URL; ?>/img/main/inc02/touch.png" alt="캐릭터">VIEW</a>
                                 </div>
                             </div>
                             <div class="bot_box">
                                 <div class="txt_box">
                                     <div class="ko_tit">학생별 맞춤 학습과
                                         체계적인 관리 시스템</div>
-                                    <a href="" class="more"><span class="sound_only">학습과정</span><div class="icon"><i data-feather="arrow-up-right"></i></div></a>
+                                    <a href="<?php echo tbc_board_url('consult'); ?>" class="more"><span class="sound_only">학습과정</span><div class="icon"><i data-feather="arrow-up-right"></i></div></a>
                                 </div>
                             </div>
                         </div>
@@ -614,7 +384,7 @@
                                         <li class="on" rel="tab1">공지사항</li>
                                         <li rel="tab2">교육정보</li>
                                     </ul>
-                                    <a href="">더보기 <em><i data-feather="arrow-up-right"></i></em></a>
+                                    <a href="<?php echo tbc_board_url('consult'); ?>">더보기 <em><i data-feather="arrow-up-right"></i></em></a>
                                 </div>
                                 <div class="bot">
                                     <div class="right">
@@ -624,7 +394,7 @@
                                                     <div class="late">
                                                         <ul class=" n_lt">
                                                             <li>
-                                                                <a href="">   
+                                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                                     <div class="lt_cont_f">
                                                                         <p class="cate">NOTICE</p>
                                                                         <p class="subj">더브레인코어 홈페이지가 새롭게 오픈...</p>
@@ -634,7 +404,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="">   
+                                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                                     <div class="lt_cont_f">
                                                                         <p class="cate">NOTICE</p>
                                                                         <p class="subj">더브레인코어 홈페이지가 새롭게 오픈...</p>
@@ -644,7 +414,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="">   
+                                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                                     <div class="lt_cont_f">
                                                                         <p class="cate">NOTICE</p>
                                                                         <p class="subj">더브레인코어 홈페이지가 새롭게 오픈...</p>
@@ -654,7 +424,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="">   
+                                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                                     <div class="lt_cont_f">
                                                                         <p class="cate">NOTICE</p>
                                                                         <p class="subj">더브레인코어 홈페이지가 새롭게 오픈...</p>
@@ -670,7 +440,7 @@
                                                     <div class="late">
                                                         <ul class=" n_lt">
                                                             <li>
-                                                                <a href="">   
+                                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                                     <div class="lt_cont_f">
                                                                         <p class="cate">지원전략</p>
                                                                         <p class="subj">모의고사, 이렇게 풀어야 진짜다!</p>
@@ -680,7 +450,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="">   
+                                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                                     <div class="lt_cont_f">
                                                                         <p class="cate">입시정보</p>
                                                                         <p class="subj">최신 입시 동향 파헤치기!</p>
@@ -690,7 +460,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="">   
+                                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                                     <div class="lt_cont_f">
                                                                         <p class="cate">지원전략</p>
                                                                         <p class="subj">2024년도 주요사항 분석_샘플대...</p>
@@ -700,7 +470,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="">   
+                                                                <a href="<?php echo tbc_board_url('consult'); ?>">   
                                                                     <div class="lt_cont_f">
                                                                         <p class="cate">입시정보</p>
                                                                         <p class="subj">2014년 8월 10일 기업형 전용...</p>
@@ -720,22 +490,22 @@
                             <div class="right" data-aos="fade-left">
                                 <div class="top">
                                     <p>교육 정보 미리보기</p>
-                                    <a href="">더보기 <em><i data-feather="arrow-up-right"></i></em></a>
+                                    <a href="<?php echo tbc_board_url('consult'); ?>">더보기 <em><i data-feather="arrow-up-right"></i></em></a>
                                 </div>
                                 <div class="bot">
                                     <div class="swiper edu_banner_slide">
                                         <ul class="swiper-wrapper">
                                             <li class="swiper-slide">
-                                                <a href=""><img src="img/main/inc03/banner01.png" alt="교육 정보 미리보기"></a>
+                                                <a href="<?php echo tbc_board_url('consult'); ?>"><img src="<?php echo G5_THEME_URL; ?>/img/main/inc03/banner01.png" alt="교육 정보 미리보기"></a>
                                             </li>
                                             <li class="swiper-slide">
-                                                <a href=""><img src="img/main/inc03/banner02.png" alt="교육 정보 미리보기"></a>
+                                                <a href="<?php echo tbc_board_url('consult'); ?>"><img src="<?php echo G5_THEME_URL; ?>/img/main/inc03/banner02.png" alt="교육 정보 미리보기"></a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="bot_txt">
                                         <div class="left">
-                                            <a href="">
+                                            <a href="<?php echo tbc_board_url('consult'); ?>">
                                                 <p>기초부터 상위권까지, 성적이 오르는 수학 루틴!</p>
                                                 <div class="date">더브레인코어 고등관 수학</div>
                                             </a>
@@ -788,56 +558,3 @@
         </div>
         <!-- sh_container_wrapper [e] --> 
     </main>
-    <!-- sh_container [e] -->
-
-    <div id="sh_ft_btns">
-        <div class="btns">
-            <a class="band" href="https://www.band.us/band/90118402/post" target="_blank" rel="noopener noreferrer">BAND 바로가기</a>
-        </div>
-    </div>
-<!-- sh_ft [s] -->
-    <footer id="sh_ft">
-        <div class="inner">
-            <div class="top">
-                <div class="link">
-                    <a>이용약관</a>
-                    <a class="infor">개인정보취급방침</a>
-                </div>
-                <dl>
-                    <dt>대표전화</dt>
-                    <dd>042-000-0000</dd>
-                </dl>
-            </div>
-            <div class="ft_cen">
-                <div class="left">
-                    <img class="ft_logo" src="img/common/logo_w.png" alt="더브레인코어">
-                    <div class="ft_sns">
-                        <a href="https://www.band.us/band/90118402/post" class="ft_band" target="_blank" rel="noopener noreferrer" aria-label="더브레인코어 BAND"><img src="img/common/band_icon_w.svg" alt="BAND"></a>
-                        <a href="https://www.instagram.com/the_braincore/" class="ft_insta" target="_blank" rel="noopener noreferrer" aria-label="더브레인코어 인스타그램"><i class="fa fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="right">
-                    <p>COMPANY INFO</p>
-                    <div class="adr">대전광역시 서구 둔산동,<br>
-                        사업자번호,<br>
-                        대표전화 042-000-0000</div>
-                </div>
-            </div>
-            <div class="ft_btm">
-                <div class="copy">ⓒ 더브레인코어</div>
-            </div>
-        </div>
-    </footer>
-    <!-- sh_ft [e] -->
-
-</div>
-<!-- sh_wrapper [e] -->
-
-<script>
-    feather.replace()
-    AOS.init();
-</script>
-
-</body>
-</html>
-

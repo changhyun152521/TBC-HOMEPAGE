@@ -4,6 +4,10 @@
 TBC-HOMEPAGE/
 ├── apps/
 │   └── web/              # 배포용 정적 사이트 (HTML/CSS/JS 유지)
+├── gnuboard/
+│   ├── theme-package/tbc/  # 그누보드5 TBC 테마
+│   ├── docker-compose.yml  # 로컬 PHP+MySQL
+│   └── runtime/            # 그누보드 프로그램 (설치 후, git 제외)
 ├── design/               # 디자인 참고 원본 (배포 제외)
 │   ├── teachers/         # 강사진 상세페이지 원본
 │   ├── academies/        # 관·분원 상세페이지 원본

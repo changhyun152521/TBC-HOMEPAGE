@@ -2,7 +2,9 @@
   "name": "tbc-homepage",
   "private": true,
   "scripts": {
-    "sync:legacy": "node scripts/sync-legacy-path.js",
-    "build": "node scripts/sync-legacy-path.js"
+    "gnuboard:build": "node scripts/build-gnuboard-theme.js",
+    "gnuboard:setup": "node scripts/setup-gnuboard.js",
+    "gnuboard:start": "docker compose -f gnuboard/docker-compose.yml up -d --build",
+    "gnuboard:stop": "docker compose -f gnuboard/docker-compose.yml down"
   }
 }

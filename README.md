@@ -59,10 +59,22 @@ npx serve .
 ## Vercel 배포
 
 1. [Vercel](https://vercel.com)에서 GitHub 저장소 `TBC-HOMEPAGE` 연결
-2. **Root Directory**를 `apps/web`로 설정 (권장) 또는 기존 `html예시파일` 유지
+2. **Root Directory**를 `apps/web`로 설정
 3. Framework Preset: **Other** (빌드 명령 없음)
 4. Deploy
 
-기존 `html예시파일` Root를 쓰는 경우, 수정은 `apps/web`에서 하고 `npm run sync:legacy`로 동기화합니다. 자세한 내용은 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+자세한 내용은 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 저장소: https://github.com/changhyun152521/TBC-HOMEPAGE
+
+## 그누보드 (CMS)
+
+공지·강사·상담 등 **관리자에서 글을 올리는 방식**으로 운영하려면 그누보드5 + TBC 테마를 사용합니다.
+
+| 명령 | 설명 |
+|------|------|
+| `npm run gnuboard:setup` | 로컬 그누보드 설치 (최초 1회) |
+| `npm run gnuboard:start` | Docker로 로컬 서버 실행 |
+| `npm run gnuboard:build` | apps/web 디자인 → 테마 반영 |
+
+**초보자 가이드**: [docs/GNUBOARD_GUIDE.md](docs/GNUBOARD_GUIDE.md) — 그누보드가 뭔지, 설치·게시판·이전 방법을 친절히 설명합니다.

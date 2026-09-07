@@ -1,22 +1,27 @@
 # 배포 안내
 
-## 현재 (Vercel Root: `html예시파일`)
+## Vercel (정적 사이트)
 
-GitHub 푸시 시 Vercel이 `html예시파일/`을 배포합니다.
+1. [Vercel](https://vercel.com) → GitHub `TBC-HOMEPAGE` 연결
+2. **Root Directory**: `apps/web`
+3. Framework Preset: **Other** (빌드 명령 없음)
+4. Deploy
 
-**사이트 수정 시** `apps/web/`만 편집한 뒤 아래 명령으로 동기화하세요.
+수정은 **`apps/web`만** 편집한 뒤 push하면 자동 배포됩니다.
 
-```bash
-npm run sync:legacy
-git add apps/web html예시파일
-git commit -m "..."
-git push
-```
+## 그누보드 (CMS)
 
-## 권장 (Vercel Root: `apps/web`)
+로컬 개발·호스팅 이전은 [GNUBOARD_GUIDE.md](GNUBOARD_GUIDE.md)를 참고하세요.
 
-Vercel 프로젝트 설정에서 **Root Directory**를 `apps/web`으로 바꾸면 `html예시파일` 복사본 없이 배포할 수 있습니다.
+| 명령 | 설명 |
+|------|------|
+| `npm run gnuboard:setup` | 로컬 그누보드 설치 |
+| `npm run gnuboard:start` | Docker 서버 시작 |
+| `npm run gnuboard:build` | apps/web → 그누보드 테마 반영 |
 
-1. Vercel → Project Settings → General → Root Directory → `apps/web`
-2. 저장소에서 `html예시파일/` 폴더 삭제 (선택)
-3. 이후 `apps/web`만 수정·커밋
+## Vercel Root 변경 (기존 `html예시파일` 사용 중이었다면)
+
+1. Vercel → Project Settings → General → **Root Directory** → `apps/web`
+2. Save 후 Redeploy
+
+이후 `html예시파일` 폴더는 저장소에 없습니다. `apps/web`만 사용합니다.
