@@ -1,6 +1,8 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
 
+include_once(dirname(__FILE__) . '/_common.php');
+
 $g5['title'] = isset($g5['title']) ? $g5['title'] : $config['cf_title'];
 ?>
 <!doctype html>
@@ -41,18 +43,41 @@ $g5['title'] = isset($g5['title']) ? $g5['title'] : $config['cf_title'];
     <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/sh_sub.css">
     <?php } ?>
     <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/aos.css">
-    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/tbc_custom.css">
+    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/tbc_custom.css?v=<?php echo @filemtime(G5_THEME_PATH . '/css/tbc_custom.css'); ?>">
     <?php if (tbc_is_page('academies') || tbc_is_page('academies_main') || tbc_is_page('academies_branch')) { ?>
     <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/location1001.css">
     <?php } ?>
     <?php if (strpos(isset($_GET['p']) ? $_GET['p'] : '', 'teachers') !== false) { ?>
     <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/members1005.css">
+    <script>window.TBC_THEME_URL = <?php echo json_encode(G5_THEME_URL); ?>;</script>
     <script src="<?php echo G5_THEME_URL; ?>/js/teacher-modal.js"></script>
     <?php } ?>
     <?php if (strpos(isset($_GET['p']) ? $_GET['p'] : '', 'schedule') !== false) { ?>
-    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/schedule.css">
-    <script src="<?php echo G5_THEME_URL; ?>/js/schedule.js"></script>
+    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/schedule.css?v=<?php echo @filemtime(G5_THEME_PATH . '/css/schedule.css'); ?>">
     <?php } ?>
+    <?php if (tbc_is_page('history')) { ?>
+    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/history.css">
+    <?php } ?>
+    <?php if (tbc_is_page('notice') || tbc_is_page('notice_view') || tbc_is_page('edu') || tbc_is_page('edu_view')) { ?>
+    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/board-search.css?v=<?php echo @filemtime(G5_THEME_PATH . '/css/board-search.css'); ?>">
+    <?php } ?>
+    <?php if (tbc_is_page('notice') || tbc_is_page('notice_view')) { ?>
+    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/board1001.css?v=<?php echo @filemtime(G5_THEME_PATH . '/css/board1001.css'); ?>">
+    <?php } ?>
+    <?php if (tbc_is_page('edu') || tbc_is_page('edu_view')) { ?>
+    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/board1006.css?v=<?php echo @filemtime(G5_THEME_PATH . '/css/board1006.css'); ?>">
+    <?php } ?>
+    <?php if (tbc_is_page('admission')) { ?>
+    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/service1003.css?v=<?php echo @filemtime(G5_THEME_PATH . '/css/service1003.css'); ?>">
+    <?php } ?>
+    <?php if (tbc_is_page('consult')) { ?>
+    <link rel="stylesheet" href="<?php echo G5_THEME_URL; ?>/css/consult.css?v=<?php echo @filemtime(G5_THEME_PATH . '/css/consult.css'); ?>">
+    <?php } ?>
+    <?php if (!defined('_INDEX_') && function_exists('tbc_menu_sub_banner_url')) {
+        $tbc_sub_banner_url = tbc_menu_sub_banner_url();
+        if ($tbc_sub_banner_url) { ?>
+    <style>#shSubBnr #mainImg{background-image:url('<?php echo htmlspecialchars($tbc_sub_banner_url, ENT_QUOTES, 'UTF-8'); ?>') !important;}</style>
+    <?php } } ?>
     <?php
     if ($config['cf_add_script']) {
         echo $config['cf_add_script'] . PHP_EOL;
@@ -60,3 +85,11 @@ $g5['title'] = isset($g5['title']) ? $g5['title'] : $config['cf_title'];
     ?>
 </head>
 <body>
+<?php
+$__tbc_nav = dirname(__FILE__) . '/nav.php';
+if (!is_file($__tbc_nav)) {
+    $__tbc_nav = dirname(__FILE__) . '/nav.inc.php';
+}
+if (is_file($__tbc_nav)) {
+    include_once($__tbc_nav);
+}

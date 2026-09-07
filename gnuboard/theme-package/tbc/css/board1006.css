@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+#board1006{position:relative;max-width:var(--mainsize);margin:30px auto;padding-bottom:100px;font-size:15px;line-height:1.8;color:#777;font-family:var(--k-font)}
+#board1006 *{word-break:keep-all}
+
+#sh_bo_gall #sh_gall_ul{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+#sh_bo_gall .gall_li .gall_con{overflow:hidden;display:flex;justify-content:space-between;padding:10px;border-radius:2px;border:1px solid #e1e1e1;background:#fff}
+#sh_bo_gall .gall_li .gall_img{width:45%}
+#sh_bo_gall .gall_li .gall_img a{display:block}
+#sh_bo_gall .gall_li .gall_img img{width:100%;aspect-ratio:683/408;object-fit:cover;background:#f5f5f5}
+#sh_bo_gall .gall_txt{width:50%}
+#sh_bo_gall .gall_txt .tit{display:block;padding-top:10px;font-weight:600;color:#222;line-height:1.5}
+#sh_bo_gall .gall_txt .subject{padding-bottom:10px;margin-bottom:10px;border-bottom:1px dotted #ccc}
+
+#sh_bo_gall .gall_txt .desc .edu_summary{margin:0;font-size:14px;line-height:1.6;color:#666;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;word-break:break-word}
+
+#sh_bo_gall .edu_empty{padding:60px 20px;text-align:center;color:#999;border:1px dashed #e1e1e1;border-radius:8px;background:#fafafa}
+
+.pg_wrap{margin:20px 0}
+.pg_wrap .pg{display:flex;justify-content:center;align-items:center;gap:4px;font-size:12px;font-weight:600;text-align:center}
+.pg_page,.pg_current{min-width:28px;height:28px;padding:0 8px;border-radius:3px;font-weight:600;color:#999;line-height:28px;background:#f2f2f2;border:none;font-family:'Pretendard',sans-serif;text-decoration:none}
+.pg_current{color:#fff;background:#333}
+.pg_prev,.pg_next,.pg_end{font-size:12px;color:#666;background:#fff;border:1px solid #e1e1e1}
+
+.btn_area{margin-top:20px;text-align:right}
+.btn_type01{display:inline-block;min-width:120px;height:55px;padding:0 24px;border-radius:2px;font-size:15px;font-weight:600;color:#fff;text-align:center;line-height:55px;background-color:#0054a6;transition:all .2s}
+.btn_type01:hover{background-color:#0064c5;color:#fff}
+
+/* 밴드형 상세 */
+.edu_view_wrap .edu_band_card{max-width:760px;margin:0 auto;padding:0 0 40px}
+.edu_view_wrap .edu_band_head{display:flex;align-items:center;gap:14px;padding:24px 0 18px;border-top:1px solid #555;border-bottom:1px solid #eee}
+.edu_view_wrap .edu_band_avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#0a2248,#0054a6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;font-family:var(--k-point),sans-serif}
+.edu_view_wrap .edu_band_meta strong{display:block;font-size:16px;color:#222}
+.edu_view_wrap .edu_band_meta span{display:block;margin-top:4px;font-size:13px;color:#888}
+.edu_view_wrap .edu_band_body{padding:28px 0 10px;font-size:16px;line-height:1.85;color:#333}
+.edu_view_wrap .edu_band_body p{margin:0 0 16px}
+.edu_view_wrap .edu_band_body img{max-width:100%;height:auto;margin:12px 0 20px;border-radius:8px}
+.edu_view_wrap .edu_band_body h2,.edu_view_wrap .edu_band_body h3{margin:24px 0 12px;color:#111;font-family:var(--k-point),sans-serif}
+.edu_view_wrap .edu_band_body blockquote{margin:16px 0;padding:14px 18px;border-left:3px solid #0054a6;background:#f7f9fc;color:#555}
+.edu_view_wrap .edu_view_empty{padding:60px 20px;text-align:center;color:#888}
+
+@media(max-width:1024px){
+#sh_bo_gall #sh_gall_ul{padding:0 10px}
+}
+@media(max-width:768px){
+#sh_bo_gall .gall_li .gall_con{display:block}
+#sh_bo_gall .gall_li .gall_img{width:100%}
+#sh_bo_gall .gall_txt .subject{padding-bottom:0}
+#sh_bo_gall .gall_txt{width:100%}
+#sh_bo_gall .gall_txt .tit{padding:5px;font-size:14px}
+.btn_area{padding-right:10px}
+.btn_type01{height:44px;line-height:44px;font-size:14px}
+.pg_page,.pg_current{min-width:24px;height:24px;line-height:24px}
+.edu_view_wrap .edu_band_head{padding-top:18px}
+.edu_view_wrap .edu_band_body{font-size:15px}
+}
+@media(max-width:580px){
+#sh_bo_gall #sh_gall_ul{grid-template-columns:repeat(1,1fr);gap:15px}
+#sh_bo_gall .gall_li .gall_con{display:flex}
+#sh_bo_gall .gall_li .gall_img{width:45%}
+#sh_bo_gall .gall_txt{width:50%}
+}
+@media(max-width:390px){
+#sh_bo_gall .gall_li .gall_con{display:block}
+#sh_bo_gall .gall_li .gall_img{width:100%}
+#sh_bo_gall .gall_txt{width:100%}
+}

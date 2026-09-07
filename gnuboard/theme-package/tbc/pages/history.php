@@ -45,19 +45,7 @@ if (!defined('_GNUBOARD_')) exit;
             <!-- sh_content [s] -->
             <div id="sh_content">
                 <!-- 서브페이지 [s] -->
-                <div id="greeting" class="pagecommon">
-                    <div class="tit_area">
-                        더브레인코어 연혁<br />
-                        <p>함께 걸어온 길을 소개합니다.</p>
-                    </div>
-                    <div class="img"></div>
-                    <div class="cont">
-                        <p class="st">연혁 페이지는 준비 중입니다.</p>
-                        <div class="pl">대전·세종을 기반으로 본원 6개 전문관과 5개 분원을 운영하며
-                        하나의 교육 브랜드로 성장해 온 더브레인코어의 발자취를 곧 업데이트하겠습니다.</div>
-                        <p class="sign">더브레인코어 <span>홍민호 대표</span></p>
-                    </div>
-                </div>
+                <?php include_once(G5_THEME_PATH . '/partials/history-content.php'); ?>
                 <!-- 서브페이지 [e] -->
                 
             </div>

@@ -73,10 +73,29 @@ function copyDir(from, to) {
 
 function syncAssets() {
   const isWin = process.platform === 'win32';
+  const preserveCss = new Set(['tbc_custom.css']);
   ['css', 'js', 'img'].forEach((dir) => {
     const from = path.join(WEB, dir);
     const to = path.join(THEME, dir);
     if (!fs.existsSync(from)) return;
+    if (dir === 'css' && isWin) {
+      for (const name of fs.readdirSync(from)) {
+        if (preserveCss.has(name)) continue;
+        const src = path.join(from, name);
+        const dest = path.join(to, name);
+        if (fs.statSync(src).isDirectory()) {
+          try {
+            execSync(`robocopy "${src}" "${dest}" /E /NFL /NDL /NJH /NJS /nc /ns /np`, { stdio: 'ignore' });
+          } catch (e) {
+            /* robocopy: exit 1 = files copied */
+          }
+        } else {
+          fs.copyFileSync(src, dest);
+        }
+      }
+      console.log(`  복사: ${dir}/ (tbc_custom.css 유지)`);
+      return;
+    }
     if (isWin) {
       try {
         execSync(`robocopy "${from}" "${to}" /E /NFL /NDL /NJH /NJS /nc /ns /np`, { stdio: 'ignore' });
@@ -138,6 +157,187 @@ if (!defined('_GNUBOARD_')) exit;
 ?>\n${body}`;
 }
 
+function patchMainBannerHero(body) {
+  const heroInclude = `                        <div class="left">
+                            <?php include_once(G5_THEME_PATH . '/partials/main-banner-hero.php'); ?>
+                        </div>`;
+
+  const heroPattern = /<div class="left">[\s\S]*?<\/div>\s*\n\s*<div class="right">/;
+  if (heroPattern.test(body)) {
+    body = body.replace(heroPattern, `${heroInclude}\n                        <div class="right">`);
+  }
+  return body;
+}
+
+function patchMainBannerRight(body) {
+  const rightInclude = `                                <?php include_once(G5_THEME_PATH . '/partials/main-banner-right.php'); ?>`;
+  const rightPattern = /<div class="top_box">\s*<div class="top_cont">[\s\S]*?<\/div>\s*<ul>/;
+  if (rightPattern.test(body)) {
+    return body.replace(rightPattern, `<div class="top_box">\n                                ${rightInclude}\n                                <ul>`);
+  }
+  return body;
+}
+
+function patchMainSection01Ko(body) {
+  const sectionInclude = `                            <?php include_once(G5_THEME_PATH . '/partials/main-section01-ko.php'); ?>`;
+  const sectionPattern = /<img src="<\?php echo G5_THEME_URL; \?>\/img\/main\/inc01\/img01\.png" alt="메인이미지">\s*<div class="ko_box">[\s\S]*?<\/div>/;
+  if (sectionPattern.test(body)) {
+    return body.replace(
+      sectionPattern,
+      `<img src="<?php echo G5_THEME_URL; ?>/img/main/inc01/img01.png" alt="메인이미지">\n                            ${sectionInclude}`
+    );
+  }
+  return body;
+}
+
+function patchMainTeachersGallery(body) {
+  const include = `                                <?php include_once(G5_THEME_PATH . '/partials/main-teachers-gallery.php'); ?>`;
+  const pattern = /<div class="gall_box">[\s\S]*?<\/div>\s*\n\s*<\/div>\s*\n\s*<div class="bot_box">/;
+  if (pattern.test(body)) {
+    return body.replace(pattern, `${include}\n                            </div>\n                            <div class="bot_box">`);
+  }
+  return body;
+}
+
+function patchMainNoticeSlider(body) {
+  const sliderInclude = `                                    <?php include_once(G5_THEME_PATH . '/partials/main-notice-slider.php'); ?>`;
+  const sliderPattern = /<ul class="swiper-wrapper">[\s\S]*?<\/ul>\s*<div class="index_btm_pager">/;
+  if (sliderPattern.test(body)) {
+    body = body.replace(sliderPattern, `${sliderInclude}\n                                    <div class="index_btm_pager">`);
+  }
+
+  const morePattern = /(<div class="notice_box">[\s\S]*?)<a href="[^"]*" class="more">더보기/;
+  if (morePattern.test(body)) {
+    body = body.replace(
+      morePattern,
+      `$1<a href="<?php echo tbc_board_url('notice'); ?>" class="more">더보기`
+    );
+  }
+
+  return body;
+}
+
+function patchMainSection03Notices(body) {
+  const include = `                                                        <?php include_once(G5_THEME_PATH . '/partials/main-section03-notices.php'); ?>`;
+  const tabPattern = /<div id="tab1" class="late_cont">\s*<div class="late">\s*<ul class=" n_lt">[\s\S]*?<\/ul>\s*<\/div>\s*<\/div>/;
+  if (tabPattern.test(body)) {
+    body = body.replace(
+      tabPattern,
+      `<div id="tab1" class="late_cont">\n                                                    <div class="late">\n${include}\n                                                    </div>\n                                                </div>`
+    );
+  }
+
+  const morePattern = /(<article id="atc03">[\s\S]*?<ul class="late_tabs">[\s\S]*?<\/ul>\s*)<a href="[^"]*">더보기/;
+  if (morePattern.test(body)) {
+    body = body.replace(
+      morePattern,
+      `$1<a href="<?php echo tbc_board_url('notice'); ?>">더보기`
+    );
+  }
+
+  return body;
+}
+
+function patchMainSection02(body) {
+  const leftInclude = `                            <?php include_once(G5_THEME_PATH . '/partials/main-section02-left.php'); ?>`;
+  const rightInclude = `                            <?php include_once(G5_THEME_PATH . '/partials/main-section02-right.php'); ?>`;
+
+  const leftPattern = /<img src="<\?php echo G5_THEME_URL; \?>\/img\/main\/inc02\/img01\.png" alt="캐릭터">\s*<h2>[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/;
+  if (leftPattern.test(body)) {
+    body = body.replace(
+      leftPattern,
+      `<img src="<?php echo G5_THEME_URL; ?>/img/main/inc02/img01.png" alt="캐릭터">\n                            ${leftInclude}\n                        </div>`
+    );
+  }
+
+  const rightPattern = /<div class="right" data-aos="fade-left">\s*<div class="top_box">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>\s*<\/article>\s*<!-- inc02 \[e\] -->/;
+  if (rightPattern.test(body)) {
+    body = body.replace(
+      rightPattern,
+      `<div class="right" data-aos="fade-left">\n                            ${rightInclude}\n                        </div>\n                    </div>\n                </article>\n                <!-- inc02 [e] -->`
+    );
+  }
+
+  return body;
+}
+
+function patchTeachersList(body, subject) {
+  const include = `                        <?php $tbc_teacher_subject = '${subject}'; include_once(G5_THEME_PATH . '/partials/teachers-list.php'); ?>`;
+  const pattern = /<ul class="instructor_list">[\s\S]*?<\/div>\s*<\/div>\s*<!-- 서브페이지 \[e\] -->/;
+  if (pattern.test(body)) {
+    body = body.replace(
+      pattern,
+      `${include}\n                    </div>\n                </div>\n                <!-- 서브페이지 [e] -->`
+    );
+  }
+  return body;
+}
+
+const TEACHER_SUBJECT_MAP = {
+  teachers: '',
+  teachers_korean: 'korean',
+  teachers_math: 'math',
+  teachers_science: 'science',
+  teachers_english: 'english',
+  teachers_social: 'social',
+};
+
+function patchGreetingContent(body) {
+  const include = `                <?php include_once(G5_THEME_PATH . '/partials/greeting-content.php'); ?>`;
+  const pattern = /<div id="greeting" class="pagecommon">[\s\S]*?<\/div>\s*<!-- 서브페이지 \[e\] -->/;
+  if (pattern.test(body)) {
+    body = body.replace(pattern, `${include}\n                <!-- 서브페이지 [e] -->`);
+  }
+  return body;
+}
+
+function patchHistoryContent(body) {
+  const include = `                <?php include_once(G5_THEME_PATH . '/partials/history-content.php'); ?>`;
+  const pattern = /<div id="history1008" class="pagecommon[\s\S]*?<\/div>\s*<!-- 서브페이지 \[e\] -->/;
+  if (pattern.test(body)) {
+    body = body.replace(pattern, `${include}\n                <!-- 서브페이지 [e] -->`);
+  }
+  return body;
+}
+
+const SCHEDULE_PAGE_CONFIG = {
+  schedule: {
+    title: '전체 시간표',
+    desc: '전체 강좌 목록을 확인하고, 관·학년·과목 필터로 원하는 강좌를 찾을 수 있습니다.',
+    group: '',
+  },
+  schedule_main: {
+    title: '본원 시간표',
+    desc: '본원 강좌 전체를 확인하고, 관·학년·과목 필터로 원하는 강좌를 찾을 수 있습니다.',
+    group: 'main',
+  },
+  schedule_branch: {
+    title: '분원 시간표',
+    desc: '분원 강좌 전체를 확인하고, 관·학년·과목 필터로 원하는 강좌를 찾을 수 있습니다.',
+    group: 'branch',
+  },
+};
+
+function patchScheduleContent(body, pageId) {
+  const config = SCHEDULE_PAGE_CONFIG[pageId];
+  if (!config) return body;
+
+  const groupLine = config.group
+    ? `\n                $tbc_schedule_group = '${config.group}';`
+    : '';
+
+  const include = `                <?php
+                $tbc_schedule_title = '${config.title}';
+                $tbc_schedule_desc = '${config.desc}';${groupLine}
+                include_once(G5_THEME_PATH . '/partials/schedule-content.php');
+                ?>`;
+  const pattern = /<div id="schedule1001"[\s\S]*?<\/div>\s*<!-- 서브페이지 \[e\] -->/;
+  if (pattern.test(body)) {
+    body = body.replace(pattern, `${include}\n                <!-- 서브페이지 [e] -->`);
+  }
+  return body;
+}
+
 function build() {
   console.log('TBC 그누보드 테마 빌드 시작...');
   try {
@@ -150,9 +350,16 @@ function build() {
     fs.mkdirSync(PAGES, { recursive: true });
 
     const indexHtml = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8');
+    let indexBody = patchMainBannerHero(convertPaths(extractMain(indexHtml)));
+    indexBody = patchMainBannerRight(indexBody);
+    indexBody = patchMainSection01Ko(indexBody);
+    indexBody = patchMainSection02(indexBody);
+    indexBody = patchMainNoticeSlider(indexBody);
+    indexBody = patchMainSection03Notices(indexBody);
+    indexBody = patchMainTeachersGallery(indexBody);
     fs.writeFileSync(
       path.join(THEME, 'index.body.php'),
-      wrapPhp(convertPaths(extractMain(indexHtml)), '메인 페이지 본문')
+      wrapPhp(indexBody, '메인 페이지 본문')
     );
     console.log('  생성: index.body.php');
 
@@ -160,9 +367,22 @@ function build() {
       const filePath = path.join(WEB, htmlFile);
       if (!fs.existsSync(filePath)) continue;
       const html = fs.readFileSync(filePath, 'utf8');
+      let pageBody = convertPaths(extractMain(html));
+      if (pageId === 'greeting') {
+        pageBody = patchGreetingContent(pageBody);
+      }
+      if (pageId === 'history') {
+        pageBody = patchHistoryContent(pageBody);
+      }
+      if (Object.prototype.hasOwnProperty.call(SCHEDULE_PAGE_CONFIG, pageId)) {
+        pageBody = patchScheduleContent(pageBody, pageId);
+      }
+      if (Object.prototype.hasOwnProperty.call(TEACHER_SUBJECT_MAP, pageId)) {
+        pageBody = patchTeachersList(pageBody, TEACHER_SUBJECT_MAP[pageId]);
+      }
       fs.writeFileSync(
         path.join(PAGES, `${pageId}.php`),
-        wrapPhp(convertPaths(extractMain(html)), `${htmlFile} → ${pageId}`)
+        wrapPhp(pageBody, `${htmlFile} → ${pageId}`)
       );
       console.log(`  생성: pages/${pageId}.php`);
     }

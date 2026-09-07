@@ -71,6 +71,221 @@
     letter-spacing: -0.3px;
 }
 
+/* BAND 선택 모달 */
+.tbc-band-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10050;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.tbc-band-modal.is-open { display: flex; }
+body.tbc-band-modal-open { overflow: hidden; }
+.tbc-band-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+}
+.tbc-band-modal__panel {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+    overflow: hidden;
+}
+.tbc-band-modal__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+.tbc-band-modal__head h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+.tbc-band-modal__close {
+    border: 0;
+    background: transparent;
+    font-size: 28px;
+    line-height: 1;
+    color: #64748b;
+    cursor: pointer;
+}
+.tbc-band-modal__list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+.tbc-band-modal__list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    color: #0f172a;
+    text-decoration: none;
+}
+.tbc-band-modal__list a:hover {
+    background: #f8fafc;
+}
+.tbc-band-modal__label {
+    font-size: 15px;
+    font-weight: 600;
+}
+.tbc-band-modal__arrow {
+    color: #94a3b8;
+}
+
+#main_banner_wrap .m_txt .more.js-tbc-band-open {
+    text-decoration: none;
+}
+
+/* inc02 — 버튼 위치·디자인 원본(sh_main.css) 유지 */
+#atc02 .inner .left .cont_box .more,
+#atc02 .inner .right .txt_box .more {
+    display: inline-block;
+    width: max-content;
+    text-decoration: none;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    line-height: normal;
+}
+
+#atc02 .inner .right .tit_box .v_more {
+    text-decoration: none;
+    color: #fff;
+}
+
+@media (min-width: 1025px) {
+    #atc02 .inner .left .cont_box .tit_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #atc02 .inner .left .cont_box .tit_box .ko_tit {
+        padding-bottom: 0;
+    }
+
+    #atc02 .inner .right .txt_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #atc02 .inner .right .txt_box .more {
+        padding-top: 0;
+        align-self: flex-start;
+    }
+}
+
+/* 메인 상담문의 슬라이드 — 버튼은 박스 위 오버레이, 콘텐츠 레이아웃 유지 */
+#main_banner_wrap .cont_box .bot_box .contact.has-nav {
+    position: relative;
+}
+#main_banner_wrap .cont_box .bot_box .contact .tbc-consult-slider-wrap {
+    position: relative;
+}
+#main_banner_wrap .cont_box .bot_box .contact .tbc_consult_slide:not(.swiper-container-initialized) .swiper-slide:not(:first-child) {
+    display: none;
+}
+#main_banner_wrap .cont_box .bot_box .contact .tbc-consult-prev,
+#main_banner_wrap .cont_box .bot_box .contact .tbc-consult-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1;
+    pointer-events: auto;
+}
+#main_banner_wrap .cont_box .bot_box .contact .tbc-consult-prev span,
+#main_banner_wrap .cont_box .bot_box .contact .tbc-consult-next span {
+    display: block;
+    margin-top: -1px;
+}
+#main_banner_wrap .cont_box .bot_box .contact .tbc-consult-prev:hover,
+#main_banner_wrap .cont_box .bot_box .contact .tbc-consult-next:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+#main_banner_wrap .cont_box .bot_box .contact .tbc-consult-prev.swiper-button-disabled,
+#main_banner_wrap .cont_box .bot_box .contact .tbc-consult-next.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+/* PC — 좌우 버튼 위치 */
+@media (min-width: 1025px) {
+    #main_banner_wrap .cont_box .bot_box .contact.has-nav .tbc-consult-prev {
+        left: 4px;
+    }
+    #main_banner_wrap .cont_box .bot_box .contact.has-nav .tbc-consult-next {
+        right: 4px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #main_banner_wrap .cont_box .bot_box .contact.has-nav .tbc-consult-prev {
+        left: 12px;
+    }
+    #main_banner_wrap .cont_box .bot_box .contact.has-nav .tbc-consult-next {
+        right: 12px;
+    }
+}
+@media (max-width: 768px) {
+    #main_banner_wrap .cont_box .bot_box .contact .tbc-consult-prev,
+    #main_banner_wrap .cont_box .bot_box .contact .tbc-consult-next {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+    #main_banner_wrap .cont_box .bot_box .contact.has-nav .tbc-consult-prev {
+        left: 10px;
+    }
+    #main_banner_wrap .cont_box .bot_box .contact.has-nav .tbc-consult-next {
+        right: 10px;
+    }
+}
+@media (max-width: 480px) {
+    #main_banner_wrap .cont_box .bot_box .contact .tbc-consult-prev,
+    #main_banner_wrap .cont_box .bot_box .contact .tbc-consult-next {
+        width: 26px;
+        height: 26px;
+        font-size: 15px;
+    }
+    #main_banner_wrap .cont_box .bot_box .contact.has-nav .tbc-consult-prev {
+        left: 8px;
+    }
+    #main_banner_wrap .cont_box .bot_box .contact.has-nav .tbc-consult-next {
+        right: 8px;
+    }
+}
+
 /* 더브코 탭 — 모바일에서도 표시 */
 @media (max-width:1024px){
 #sh_wrapper.about #sh_aside{display:block !important}
@@ -90,10 +305,9 @@
     background-color: #f0f5f5;
 }
 
-/* 교육 정보 미리보기 배너
-   img01(683x408) 표시 크기 유지 — 박스 583x408, 배너(1260x891)는 너비 맞춤·높이 crop, 확대 없음 */
+/* 교육 정보 미리보기 배너 — 원본(583×408) 너비 +10%, 높이 유지 */
 #atc03 .inner .right .bot .edu_banner_slide {
-    width: 583px;
+    width: 641px;
     max-width: 100%;
     height: 408px;
     overflow: hidden;
@@ -103,6 +317,10 @@
 #atc03 .inner .right .bot .edu_banner_slide .swiper-wrapper,
 #atc03 .inner .right .bot .edu_banner_slide .swiper-slide {
     height: 100%;
+}
+
+#atc03 .inner .right .bot .edu_banner_slide .swiper-slide {
+    overflow: hidden;
 }
 
 #atc03 .inner .right .bot .edu_banner_slide a {
@@ -122,9 +340,17 @@
     border-radius: 20px;
 }
 
+@media (max-width: 1380px) {
+    #atc03 .inner .right .bot .edu_banner_slide img {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 20px;
+    }
+}
+
 @media (max-width: 1024px) {
     #atc03 .inner .right .bot .edu_banner_slide {
-        width: 636px;
+        width: 700px;
         height: 450px;
     }
 }
@@ -135,7 +361,7 @@
     }
 
     #atc03 .inner .right .bot .edu_banner_slide {
-        width: 509px;
+        width: 560px;
         height: 360px;
     }
 }
@@ -146,14 +372,87 @@
     }
 
     #atc03 .inner .right .bot .edu_banner_slide {
-        width: 382px;
+        width: 420px;
         height: 270px;
     }
 }
 
 @media (max-width: 390px) {
     #atc03 .inner .right .bot .edu_banner_slide {
-        width: 311px;
+        width: 342px;
         height: 220px;
+    }
+}
+
+/* 메인 공지 슬라이더 — 제목 최대 2줄 */
+#index_btm .index_btm_slide .sh_notice a {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+}
+
+/* 메인 atc03 카드 — 제목 1줄, 본문 요약 2줄(박스 기준) */
+#atc03 .inner .cont_box .bot .n_lt a .lt_cont_f {
+    width: 100%;
+    min-width: 0;
+}
+
+#atc03 .inner .cont_box .bot .n_lt a .subj {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+}
+
+#atc03 .inner .cont_box .bot .n_lt a .subt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    line-height: 1.8;
+    max-height: 3.6em;
+}
+
+/* 교육정보 미리보기 하단 제목 — 원본 1줄 */
+#atc03 .inner .right .bot_txt .left p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+@media (max-width: 768px) {
+    #atc03 .inner .cont_box .bot .n_lt a > div {
+        width: 100%;
+    }
+
+    #atc03 .inner .cont_box .bot .n_lt a .subj,
+    #atc03 .inner .cont_box .bot .n_lt a .subt {
+        width: 100%;
+    }
+
+    #atc03 .inner .cont_box .bot .n_lt a .subj {
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+    }
+
+    #atc03 .inner .cont_box .bot .n_lt a .subt {
+        -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
+        max-height: 3.6em;
     }
 }

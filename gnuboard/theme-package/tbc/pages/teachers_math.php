@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * teachers-math.html → teachers_math
  * apps/web 에서 자동 생성 — 직접 수정 시 build 스크립트 재실행 시 덮어씌워집니다.
@@ -63,103 +63,7 @@ if (!defined('_GNUBOARD_')) exit;
                                 풍부한 현장 경험과 체계적인 커리큘럼을 바탕으로 학생 개개인에 맞는 최적의 학습 방향을 제시합니다.
                             </p>
                         </div>
-                        <ul class="instructor_list">
-                            <li class="list02" id="teacher-song" data-aos="fade-up">
-                                <div class="img_box">
-                                    <ul class="bg_txt">
-                                        <li>수학</li>
-                                        <li>입시</li>
-                                    </ul>
-                                    <img src="<?php echo G5_THEME_URL; ?>/img/sub/teacher2.png" alt="송형주 강사">
-                                </div>
-                                <div class="left_txt">
-                                    <div class="l_top">
-                                        <ul class="l_round_tit">
-                                            <li>수학</li>
-                                            <li>중등</li>
-                                            <li>고등</li>
-                                        </ul>
-                                        <div class="l_name_wrap">
-                                            <span class="subject">수학 / 중등·고등</span>
-                                            <b class="name">송형주 강사</b>
-                                        </div>
-                                    </div>
-                                    <ul class="l_btn_wrap">
-                                        <li><a href="#" class="js-teacher-modal" data-modal-img="img/sub/teacher_pr_sample.jpg" data-modal-title="커리큘럼" data-modal-alt="강사 커리큘럼">커리큘럼 바로가기<i data-feather="chevron-right" class="icon"></i></a></li>
-                                        <li><a href="#" class="js-teacher-modal" data-modal-img="img/sub/teacher_pr_sample.jpg" data-modal-title="수업 특징" data-modal-alt="수업 특징">수업 특징 바로가기<i data-feather="chevron-right" class="icon"></i></a></li>
-                                    </ul>
-                                    <p class="l_txt">막히던 수학이 풀리는 순간</p>
-                                </div>
-                                <div class="right_txt">
-                                    <ul class="r_history">
-                                        <li>
-                                            <span class="h_t_tit">전문 지도 분야</span>
-                                            <ul class="h_b_txt">
-                                                <li>내신 대비 심화·개념 완성</li>
-                                                <li>수능 고난도 문제 해결 전략</li>
-                                                <li>학생 수준별 맞춤 지도</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <span class="h_t_tit">학력 및 경력</span>
-                                            <ul class="h_b_txt">
-                                                <li>해당 과목 전문 지도</li>
-                                                <li>중등·고등 강의 경력</li>
-                                                <li>학생 맞춤형 학습 설계</li>
-                                                <li>더브레인코어 전문 강사</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>                            <li class="list01" id="teacher-kim" data-aos="fade-up">
-                                <div class="img_box">
-                                    <ul class="bg_txt">
-                                        <li>수학</li>
-                                        <li>내신</li>
-                                    </ul>
-                                    <img src="<?php echo G5_THEME_URL; ?>/img/sub/teacher3.png" alt="김나영 강사">
-                                </div>
-                                <div class="left_txt">
-                                    <div class="l_top">
-                                        <ul class="l_round_tit">
-                                            <li>수학</li>
-                                            <li>중등</li>
-                                            <li>고등</li>
-                                        </ul>
-                                        <div class="l_name_wrap">
-                                            <span class="subject">수학 / 중등·고등</span>
-                                            <b class="name">김나영 강사</b>
-                                        </div>
-                                    </div>
-                                    <ul class="l_btn_wrap">
-                                        <li><a href="#" class="js-teacher-modal" data-modal-img="img/sub/teacher_pr_sample.jpg" data-modal-title="커리큘럼" data-modal-alt="강사 커리큘럼">커리큘럼 바로가기<i data-feather="chevron-right" class="icon"></i></a></li>
-                                        <li><a href="#" class="js-teacher-modal" data-modal-img="img/sub/teacher_pr_sample.jpg" data-modal-title="수업 특징" data-modal-alt="수업 특징">수업 특징 바로가기<i data-feather="chevron-right" class="icon"></i></a></li>
-                                    </ul>
-                                    <p class="l_txt">내신과 수능을 한 번에</p>
-                                </div>
-                                <div class="right_txt">
-                                    <ul class="r_history">
-                                        <li>
-                                            <span class="h_t_tit">전문 지도 분야</span>
-                                            <ul class="h_b_txt">
-                                                <li>내신 대비 심화·개념 완성</li>
-                                                <li>수능 고난도 문제 해결 전략</li>
-                                                <li>학생 수준별 맞춤 지도</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <span class="h_t_tit">학력 및 경력</span>
-                                            <ul class="h_b_txt">
-                                                <li>해당 과목 전문 지도</li>
-                                                <li>중등·고등 강의 경력</li>
-                                                <li>학생 맞춤형 학습 설계</li>
-                                                <li>더브레인코어 전문 강사</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
+                        <?php $tbc_teacher_subject = 'math'; include_once(G5_THEME_PATH . '/partials/teachers-list.php'); ?>
                     </div>
                 </div>
                 <!-- 서브페이지 [e] -->
@@ -170,3 +74,4 @@ if (!defined('_GNUBOARD_')) exit;
         </div>
         <!-- sh_container_wrapper [e] -->
     </main>
+

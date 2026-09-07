@@ -11,7 +11,7 @@ $titles = array(
     'greeting' => '더브코-인사말',
     'philosophy' => '더브코-교육철학',
     'history' => '더브코-연혁',
-    'academies' => '관·분원',
+    'academies' => '분원',
     'academies_main' => '본원 · 대전 둔산',
     'academies_branch' => '분원 안내',
     'teachers' => '전체 강사진',
@@ -23,8 +23,13 @@ $titles = array(
     'schedule' => '전체 시간표',
     'schedule_main' => '본원 시간표',
     'schedule_branch' => '분원 시간표',
+    'notice' => '공지사항',
+    'notice_view' => '공지사항',
+    'edu' => '교육정보',
+    'edu_view' => '교육정보',
     'admission' => '입학절차',
     'faq' => 'FAQ',
+    'consult' => '상담신청',
 );
 
 $page_file = G5_THEME_PATH . '/pages/' . $p . '.php';

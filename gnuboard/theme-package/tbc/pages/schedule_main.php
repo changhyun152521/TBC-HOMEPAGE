@@ -45,35 +45,12 @@ if (!defined('_GNUBOARD_')) exit;
             <!-- sh_content [s] -->
             <div id="sh_content">
                 <!-- 서브페이지 [s] -->
-                <div id="schedule1001" data-scope="main" data-academy="high">
-                    <div class="sch_head">
-                        <h3 class="sch_tit">본원 시간표</h3>
-                        <p class="sch_desc">관·분원과 학년을 선택하면 해당 시간표를 확인할 수 있습니다.</p>
-                    </div>
-
-                    <div class="sch_section">
-                        <strong class="sch_label">관·분원 선택</strong>
-                        <div class="sch_group" id="schGroupMain">
-                            <span class="sch_group_tit">본원</span>
-                            <div class="sch_academy_list" id="schAcademyMain"></div>
-                        </div>
-                        <div class="sch_group" id="schGroupBranch">
-                            <span class="sch_group_tit">분원</span>
-                            <div class="sch_academy_list" id="schAcademyBranch"></div>
-                        </div>
-                    </div>
-
-                    <div class="sch_section">
-                        <strong class="sch_label">학년 선택</strong>
-                        <div class="sch_grade_list" id="schGradeList"></div>
-                    </div>
-
-                    <div class="sch_result">
-                        <h4 class="sch_result_tit" id="schResultTit">시간표</h4>
-                        <ul class="sch_img_list" id="schImgList"></ul>
-                        <div class="sch_empty" id="schEmpty" style="display:none;"></div>
-                    </div>
-                </div>
+                <?php
+                $tbc_schedule_title = '본원 시간표';
+                $tbc_schedule_desc = '본원 강좌 전체를 확인하고, 관·학년·과목 필터로 원하는 강좌를 찾을 수 있습니다.';
+                $tbc_schedule_group = 'main';
+                include_once(G5_THEME_PATH . '/partials/schedule-content.php');
+                ?>
                 <!-- 서브페이지 [e] -->
                 
             </div>

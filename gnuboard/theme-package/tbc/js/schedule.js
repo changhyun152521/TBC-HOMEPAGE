@@ -1,254 +1,314 @@
 (function () {
   'use strict';
 
-  var SCHEDULE_DATA = {
-    elementary: {
-      name: '초등관',
-      group: 'main',
-      grades: []
-    },
-    middle: {
-      name: '중등관',
-      group: 'main',
-      grades: []
-    },
-    high: {
-      name: '고등관',
-      group: 'main',
-      grades: [
-        {
-          id: 'g1',
-          label: '고1',
-          images: [
-            { src: 'img/schedule/high1-1.png', alt: '고등관 고1 시간표 1' },
-            { src: 'img/schedule/high1-2.png', alt: '고등관 고1 시간표 2' }
-          ]
-        },
-        {
-          id: 'g2',
-          label: '고2 수학',
-          images: [
-            { src: 'img/schedule/high2-1.png', alt: '고등관 고2 수학 시간표 1' },
-            { src: 'img/schedule/high2-2.png', alt: '고등관 고2 수학 시간표 2' }
-          ]
-        }
-      ]
-    },
-    science: {
-      name: '과학관',
-      group: 'main',
-      grades: []
-    },
-    alpha: {
-      name: '알파',
-      group: 'main',
-      grades: []
-    },
-    fullstory: {
-      name: '풀스토리',
-      group: 'main',
-      grades: []
-    },
-    noeun: {
-      name: '노은관',
-      group: 'branch',
-      grades: []
-    },
-    gwanpyeong: {
-      name: '관평관',
-      group: 'branch',
-      grades: []
-    },
-    gwanjeo: {
-      name: '관저관',
-      group: 'branch',
-      grades: []
-    },
-    areum: {
-      name: '세종아름관',
-      group: 'branch',
-      grades: []
-    },
-    saerom: {
-      name: '세종새롬관',
-      group: 'branch',
-      grades: []
-    }
-  };
+  var DATA = window.TBC_SCHEDULE_DATA || { academyOrder: [], academies: {}, grades: {}, subjects: {}, courses: [] };
+  var ACADEMY_ORDER = DATA.academyOrder && DATA.academyOrder.length ? DATA.academyOrder : [];
+  var GRADE_ORDER = (DATA.gradeOrder && DATA.gradeOrder.length) ? DATA.gradeOrder : Object.keys(DATA.grades || {});
+  var SUBJECT_ORDER = (DATA.subjectOrder && DATA.subjectOrder.length) ? DATA.subjectOrder : Object.keys(DATA.subjects || {});
 
-  var MAIN_ORDER = ['elementary', 'middle', 'high', 'science', 'alpha', 'fullstory'];
-  var BRANCH_ORDER = ['noeun', 'gwanpyeong', 'gwanjeo', 'areum', 'saerom'];
-
-  function getScope() {
-    var root = document.getElementById('schedule1001');
-    return root ? (root.getAttribute('data-scope') || 'all') : 'all';
+  function byId(id) {
+    return document.getElementById(id);
   }
 
-  function getAcademyIds(scope) {
-    if (scope === 'main') return MAIN_ORDER.slice();
-    if (scope === 'branch') return BRANCH_ORDER.slice();
-    return MAIN_ORDER.concat(BRANCH_ORDER);
+  function label(map, key) {
+    return map && map[key] ? map[key] : key;
   }
 
-  function defaultAcademy(scope) {
-    var ids = getAcademyIds(scope);
-    for (var i = 0; i < ids.length; i++) {
-      if (SCHEDULE_DATA[ids[i]].grades.length) return ids[i];
-    }
-    return ids[0];
+  function sortIndex(order, key) {
+    var idx = order.indexOf(key);
+    return idx === -1 ? 999 : idx;
   }
 
-  function renderAcademies(scope, selectedId) {
-    var mainWrap = document.getElementById('schAcademyMain');
-    var branchWrap = document.getElementById('schAcademyBranch');
-    var mainGroup = document.getElementById('schGroupMain');
-    var branchGroup = document.getElementById('schGroupBranch');
-    if (!mainWrap || !branchWrap) return;
-
-    function makeButtons(ids, wrap) {
-      wrap.innerHTML = '';
-      ids.forEach(function (id) {
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.setAttribute('data-academy', id);
-        btn.textContent = SCHEDULE_DATA[id].name;
-        if (id === selectedId) btn.className = 'on';
-        wrap.appendChild(btn);
-      });
-    }
-
-    if (scope === 'branch') {
-      if (mainGroup) mainGroup.style.display = 'none';
-      if (branchGroup) branchGroup.style.display = '';
-      makeButtons([], mainWrap);
-      makeButtons(BRANCH_ORDER, branchWrap);
-    } else if (scope === 'main') {
-      if (mainGroup) mainGroup.style.display = '';
-      if (branchGroup) branchGroup.style.display = 'none';
-      makeButtons(MAIN_ORDER, mainWrap);
-      makeButtons([], branchWrap);
-    } else {
-      if (mainGroup) mainGroup.style.display = '';
-      if (branchGroup) branchGroup.style.display = '';
-      makeButtons(MAIN_ORDER, mainWrap);
-      makeButtons(BRANCH_ORDER, branchWrap);
-    }
+  function makeChip(type, value, text, active) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = active ? 'on' : '';
+    btn.setAttribute('data-' + type, value);
+    btn.textContent = text;
+    return btn;
   }
 
-  function renderGrades(academyId, selectedGradeId) {
-    var wrap = document.getElementById('schGradeList');
-    if (!wrap) return;
-    var academy = SCHEDULE_DATA[academyId];
+  function showFilterEmpty(wrap, text) {
     wrap.innerHTML = '';
-
-    if (!academy || !academy.grades.length) {
-      var empty = document.createElement('button');
-      empty.type = 'button';
-      empty.disabled = true;
-      empty.textContent = '학년 준비 중';
-      wrap.appendChild(empty);
-      return null;
-    }
-
-    var activeId = selectedGradeId;
-    var found = academy.grades.some(function (g) { return g.id === activeId; });
-    if (!found) activeId = academy.grades[0].id;
-
-    academy.grades.forEach(function (grade) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.setAttribute('data-grade', grade.id);
-      btn.textContent = grade.label;
-      if (grade.id === activeId) btn.className = 'on';
-      wrap.appendChild(btn);
-    });
-    return activeId;
+    var empty = document.createElement('span');
+    empty.className = 'sch_filter_empty';
+    empty.textContent = text;
+    wrap.appendChild(empty);
   }
 
-  function renderImages(academyId, gradeId) {
-    var list = document.getElementById('schImgList');
-    var empty = document.getElementById('schEmpty');
-    var title = document.getElementById('schResultTit');
-    if (!list || !empty || !title) return;
-
-    var academy = SCHEDULE_DATA[academyId];
-    if (!academy) return;
-
-    var grade = null;
-    if (gradeId) {
-      for (var i = 0; i < academy.grades.length; i++) {
-        if (academy.grades[i].id === gradeId) {
-          grade = academy.grades[i];
-          break;
-        }
+  function uniqueSorted(values, order) {
+    var list = [];
+    values.forEach(function (value) {
+      if (value && list.indexOf(value) === -1) {
+        list.push(value);
       }
-    }
+    });
+    list.sort(function (a, b) {
+      return sortIndex(order, a) - sortIndex(order, b);
+    });
+    return list;
+  }
 
-    list.innerHTML = '';
+  function getAvailableGrades(academyId) {
+    var grades = [];
+    DATA.courses.forEach(function (course) {
+      if (academyId && course.academy !== academyId) return;
+      grades.push(course.grade);
+    });
+    return uniqueSorted(grades, GRADE_ORDER);
+  }
 
-    if (!grade || !grade.images.length) {
-      title.innerHTML = '더브코 <em>' + academy.name + '</em> 시간표';
-      list.style.display = 'none';
-      empty.style.display = '';
-      empty.innerHTML = '<strong>시간표 준비 중</strong><p>해당 관의 시간표 이미지는 곧 업데이트됩니다.</p>';
+  function getAvailableSubjects(academyId, gradeId) {
+    var subjects = [];
+    DATA.courses.forEach(function (course) {
+      if (academyId && course.academy !== academyId) return;
+      if (gradeId && course.grade !== gradeId) return;
+      subjects.push(course.subject);
+    });
+    return uniqueSorted(subjects, SUBJECT_ORDER);
+  }
+
+  function renderAcademies(selectedId) {
+    var wrap = byId('schAcademyList');
+    if (!wrap) return;
+
+    wrap.innerHTML = '';
+    wrap.appendChild(makeChip('academy', '', '전체', !selectedId));
+
+    if (!ACADEMY_ORDER.length) {
+      showFilterEmpty(wrap, '등록된 관이 없습니다');
       return;
     }
 
-    title.innerHTML = '더브코 <em>' + academy.name + '</em> · ' + grade.label + ' 시간표';
-    empty.style.display = 'none';
-    list.style.display = '';
-
-    grade.images.forEach(function (img) {
-      var li = document.createElement('li');
-      var image = document.createElement('img');
-      image.src = img.src;
-      image.alt = img.alt;
-      image.loading = 'lazy';
-      li.appendChild(image);
-      list.appendChild(li);
+    ACADEMY_ORDER.forEach(function (id) {
+      var meta = DATA.academies[id];
+      if (!meta) return;
+      wrap.appendChild(makeChip('academy', id, meta.name, id === selectedId));
     });
   }
 
-  function setState(academyId, gradeId) {
-    var root = document.getElementById('schedule1001');
+  function renderGrades(academyId, selectedGradeId) {
+    var wrap = byId('schGradeList');
+    if (!wrap) return null;
+
+    wrap.innerHTML = '';
+    var grades = getAvailableGrades(academyId);
+
+    if (!grades.length) {
+      showFilterEmpty(wrap, '등록된 학년이 없습니다');
+      return null;
+    }
+
+    wrap.appendChild(makeChip('grade', '', '전체', !selectedGradeId));
+
+    var activeId = (selectedGradeId && grades.indexOf(selectedGradeId) !== -1) ? selectedGradeId : null;
+    grades.forEach(function (gradeId) {
+      wrap.appendChild(makeChip('grade', gradeId, label(DATA.grades, gradeId), gradeId === activeId));
+    });
+
+    return activeId;
+  }
+
+  function renderSubjects(academyId, gradeId, selectedSubjectId) {
+    var wrap = byId('schSubjectList');
+    if (!wrap) return null;
+
+    wrap.innerHTML = '';
+    var subjects = getAvailableSubjects(academyId, gradeId);
+
+    if (!subjects.length) {
+      showFilterEmpty(wrap, '등록된 과목이 없습니다');
+      return null;
+    }
+
+    wrap.appendChild(makeChip('subject', '', '전체', !selectedSubjectId));
+
+    var activeId = (selectedSubjectId && subjects.indexOf(selectedSubjectId) !== -1) ? selectedSubjectId : null;
+    subjects.forEach(function (subjectId) {
+      wrap.appendChild(makeChip('subject', subjectId, label(DATA.subjects, subjectId), subjectId === activeId));
+    });
+
+    return activeId;
+  }
+
+  function filterCourses(academyId, gradeId, subjectId) {
+    return DATA.courses.filter(function (course) {
+      if (academyId && course.academy !== academyId) return false;
+      if (gradeId && course.grade !== gradeId) return false;
+      if (subjectId && course.subject !== subjectId) return false;
+      return true;
+    });
+  }
+
+  function sortCourses(courses) {
+    return courses.slice().sort(function (a, b) {
+      var gradeDiff = sortIndex(GRADE_ORDER, a.grade) - sortIndex(GRADE_ORDER, b.grade);
+      if (gradeDiff !== 0) return gradeDiff;
+
+      var subjectDiff = sortIndex(SUBJECT_ORDER, a.subject) - sortIndex(SUBJECT_ORDER, b.subject);
+      if (subjectDiff !== 0) return subjectDiff;
+
+      var academyDiff = sortIndex(ACADEMY_ORDER, a.academy) - sortIndex(ACADEMY_ORDER, b.academy);
+      if (academyDiff !== 0) return academyDiff;
+
+      var orderDiff = (a.order || 0) - (b.order || 0);
+      if (orderDiff !== 0) return orderDiff;
+
+      return String(a.name || '').localeCompare(String(b.name || ''), 'ko');
+    });
+  }
+
+  function buildResultMeta(academyId, gradeId, subjectId, count) {
+    var parts = [];
+
+    if (!academyId && !gradeId && !subjectId) {
+      return '전체 강좌' + (count ? ' — 총 ' + count + '개' : '');
+    }
+
+    if (academyId) {
+      var academyMeta = DATA.academies[academyId];
+      parts.push(academyMeta ? academyMeta.name : academyId);
+    }
+    if (gradeId) {
+      parts.push(label(DATA.grades, gradeId));
+    }
+    if (subjectId) {
+      parts.push(label(DATA.subjects, subjectId));
+    }
+
+    return parts.join(' · ') + (count ? ' — 총 ' + count + '개 강좌' : '');
+  }
+
+  function escapeHtml(text) {
+    return String(text || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function renderScheduleText(slots) {
+    if (!slots || !slots.length) return '—';
+    return slots.map(function (slot) { return slot.label; }).join('<br>');
+  }
+
+  function renderResults(academyId, gradeId, subjectId) {
+    var tableWrap = byId('schTableWrap');
+    var tableBody = byId('schTableBody');
+    var empty = byId('schEmpty');
+    var meta = byId('schResultMeta');
+    if (!tableWrap || !tableBody || !empty) return;
+
+    var courses = sortCourses(filterCourses(academyId, gradeId, subjectId));
+
+    if (meta) {
+      meta.textContent = buildResultMeta(academyId, gradeId, subjectId, courses.length);
+    }
+
+    tableBody.innerHTML = '';
+
+    if (!courses.length) {
+      tableWrap.style.display = 'none';
+      empty.style.display = '';
+      return;
+    }
+
+    empty.style.display = 'none';
+    tableWrap.style.display = '';
+
+    courses.forEach(function (course) {
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td class="sch_col_grade">' + escapeHtml(label(DATA.grades, course.grade)) + '</td>' +
+        '<td class="sch_col_subject">' + escapeHtml(label(DATA.subjects, course.subject)) + '</td>' +
+        '<td class="sch_col_name"><strong>' + escapeHtml(course.name) + '</strong></td>' +
+        '<td class="sch_col_place">' + escapeHtml((DATA.academies[course.academy] && DATA.academies[course.academy].name) || course.academy || '—') + '</td>' +
+        '<td class="sch_col_teacher">' + escapeHtml(course.teacher || '—') + '</td>' +
+        '<td class="sch_col_time">' + renderScheduleText(course.slots) + '</td>' +
+        '<td class="sch_col_fee">' + escapeHtml(course.fee || '—') + '</td>' +
+        '<td class="sch_col_intro">' + (course.introImage
+          ? '<button type="button" class="sch_intro_btn" data-image="' + escapeHtml(course.introImage) + '" data-title="' + escapeHtml(course.name) + '">보기</button>'
+          : '<span class="sch_intro_none">—</span>') + '</td>';
+      tableBody.appendChild(tr);
+    });
+  }
+
+  function setState(academyId, gradeId, subjectId) {
+    var root = byId('schedule1001');
     if (!root) return;
-    root.setAttribute('data-academy', academyId);
-    if (gradeId) root.setAttribute('data-grade', gradeId);
-    else root.removeAttribute('data-grade');
+    root.setAttribute('data-academy', academyId || '');
+    root.setAttribute('data-grade', gradeId || '');
+    root.setAttribute('data-subject', subjectId || '');
+  }
+
+  function openIntroModal(image, title) {
+    var modal = byId('schIntroModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'schIntroModal';
+      modal.className = 'sch_modal';
+      modal.innerHTML =
+        '<div class="sch_modal_backdrop" data-close="1"></div>' +
+        '<div class="sch_modal_panel" role="dialog" aria-modal="true">' +
+          '<div class="sch_modal_head"><strong id="schIntroModalTitle"></strong><button type="button" class="sch_modal_close" data-close="1" aria-label="닫기">×</button></div>' +
+          '<div class="sch_modal_body"><img id="schIntroModalImage" alt=""></div>' +
+        '</div>';
+      document.body.appendChild(modal);
+      modal.addEventListener('click', function (e) {
+        if (e.target.getAttribute('data-close') === '1') {
+          modal.classList.remove('is-open');
+          document.body.classList.remove('sch-modal-open');
+        }
+      });
+    }
+
+    byId('schIntroModalTitle').textContent = title || '강좌 소개';
+    byId('schIntroModalImage').src = image;
+    byId('schIntroModalImage').alt = title || '강좌 소개';
+    modal.classList.add('is-open');
+    document.body.classList.add('sch-modal-open');
+  }
+
+  function refresh(academyId, gradeId, subjectId) {
+    renderAcademies(academyId);
+    gradeId = renderGrades(academyId, gradeId);
+    subjectId = renderSubjects(academyId, gradeId, subjectId);
+    setState(academyId, gradeId, subjectId);
+    renderResults(academyId, gradeId, subjectId);
   }
 
   function init() {
-    var root = document.getElementById('schedule1001');
+    var root = byId('schedule1001');
     if (!root) return;
 
-    var scope = getScope();
-    var academyId = root.getAttribute('data-academy') || defaultAcademy(scope);
-    if (getAcademyIds(scope).indexOf(academyId) === -1) {
-      academyId = defaultAcademy(scope);
-    }
-
-    renderAcademies(scope, academyId);
-    var gradeId = renderGrades(academyId, root.getAttribute('data-grade'));
-    setState(academyId, gradeId);
-    renderImages(academyId, gradeId);
+    refresh('', '', '');
 
     root.addEventListener('click', function (e) {
+      var introBtn = e.target.closest('.sch_intro_btn');
+      if (introBtn) {
+        openIntroModal(introBtn.getAttribute('data-image'), introBtn.getAttribute('data-title'));
+        return;
+      }
+
       var academyBtn = e.target.closest('button[data-academy]');
       if (academyBtn) {
-        academyId = academyBtn.getAttribute('data-academy');
-        renderAcademies(scope, academyId);
-        gradeId = renderGrades(academyId, null);
-        setState(academyId, gradeId);
-        renderImages(academyId, gradeId);
+        refresh(academyBtn.getAttribute('data-academy'), '', '');
         return;
       }
 
       var gradeBtn = e.target.closest('button[data-grade]');
       if (gradeBtn) {
-        gradeId = gradeBtn.getAttribute('data-grade');
-        renderGrades(academyId, gradeId);
-        setState(academyId, gradeId);
-        renderImages(academyId, gradeId);
+        refresh(root.getAttribute('data-academy') || '', gradeBtn.getAttribute('data-grade'), '');
+        return;
+      }
+
+      var subjectBtn = e.target.closest('button[data-subject]');
+      if (subjectBtn) {
+        refresh(
+          root.getAttribute('data-academy') || '',
+          root.getAttribute('data-grade') || '',
+          subjectBtn.getAttribute('data-subject')
+        );
       }
     });
   }

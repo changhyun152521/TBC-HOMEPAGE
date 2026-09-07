@@ -45,23 +45,7 @@ if (!defined('_GNUBOARD_')) exit;
             <!-- sh_content [s] -->
             <div id="sh_content">
                 <!-- 서브페이지 [s] -->
-                <div id="greeting" class="pagecommon">
-                    <div class="tit_area">
-                        하나의 교육 브랜드, 더브레인코어<br />
-                        <p><b>더브레인코어</b>가 학생의 성장을 함께합니다.</p>
-                    </div>
-                    <div class="img"></div>
-                    <div class="cont">
-                        <p class="st">먼저 학부모님과 학생 여러분의 변함없는 관심과 신뢰에 깊이 감사드립니다.</p>
-                        <div class="pl">더브레인코어는 대전·세종 지역에서 초등관, 중등관, 고등관, 과학관 등 본원 6개 전문관과
-                        5개 지역 분원을 하나의 교육 브랜드로 연결하여 운영하고 있습니다.</div><br />  
-                        <div class="pl">우리는 단기적인 성적 향상보다 학생의 전인적 성장과 학습 습관 형성을 중시하며,
-                        체계적인 교육과정과 전문 강사진, 관리 시스템을 통해 신뢰할 수 있는 교육을 제공하고자 합니다.
-                        앞으로도 더브레인코어는 학부모님과 학생 여러분의 든든한 교육 파트너가 되겠습니다.<br />              
-                        감사합니다.</div>
-                        <p class="sign">더브레인코어 <span>홍민호 대표</span></p>
-                    </div>
-                </div>
+                <?php include_once(G5_THEME_PATH . '/partials/greeting-content.php'); ?>
                 <!-- 서브페이지 [e] -->
                 
             </div>

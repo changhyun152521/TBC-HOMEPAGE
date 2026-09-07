@@ -11,12 +11,62 @@ function tbc_page_url($page)
 
 function tbc_board_url($bo_table)
 {
+    if ($bo_table === 'notice') {
+        return tbc_page_url('notice');
+    }
+    if ($bo_table === 'edu') {
+        return tbc_page_url('edu');
+    }
+    if ($bo_table === 'consult') {
+        return tbc_page_url('consult');
+    }
+
     return G5_BBS_URL . '/board.php?bo_table=' . urlencode($bo_table);
 }
 
 function tbc_theme_url($path = '')
 {
     return G5_THEME_URL . ($path ? '/' . ltrim($path, '/') : '');
+}
+
+function tbc_media_path($group)
+{
+    $map = array(
+        'teacher' => G5_DATA_PATH . '/tbc/teacher',
+        'greeting' => G5_DATA_PATH . '/tbc/greeting',
+        'banner' => G5_DATA_PATH . '/tbc/banner',
+        'academy' => G5_DATA_PATH . '/tbc/academy',
+        'schedule' => G5_DATA_PATH . '/tbc/schedule',
+        'menu' => G5_DATA_PATH . '/tbc/menu',
+        'notice' => G5_DATA_PATH . '/tbc/notice',
+        'edu' => G5_DATA_PATH . '/tbc/edu',
+        'admission' => G5_DATA_PATH . '/tbc/admission',
+    );
+
+    return isset($map[$group]) ? $map[$group] : '';
+}
+
+function tbc_media_url($group, $filename)
+{
+    if (!$filename) {
+        return '';
+    }
+
+    return G5_BBS_URL . '/tbc_media.php?group=' . urlencode($group) . '&name=' . urlencode($filename);
+}
+
+function tbc_media_resolve_url($group, $filename, $theme_fallback = '')
+{
+    if (!$filename) {
+        return $theme_fallback;
+    }
+
+    $path = tbc_media_path($group);
+    if ($path && is_file($path . '/' . $filename)) {
+        return tbc_media_url($group, $filename);
+    }
+
+    return $theme_fallback;
 }
 
 function tbc_is_page($page)
@@ -30,15 +80,32 @@ function tbc_body_class()
         return 'main';
     }
     $p = isset($_GET['p']) ? $_GET['p'] : '';
-    $map = array(
-        'greeting' => 'sub about',
-        'philosophy' => 'sub about',
-        'history' => 'sub about',
-        'academies' => 'sub',
-        'academies_main' => 'sub',
-        'academies_branch' => 'sub',
-        'teachers' => 'sub',
-        'schedule' => 'sub',
-    );
-    return isset($map[$p]) ? $map[$p] : 'sub';
+
+    $about = array('greeting', 'philosophy', 'history');
+    if (in_array($p, $about, true)) {
+        return 'sub about';
+    }
+    if ($p === 'teachers' || strpos($p, 'teachers_') === 0) {
+        return 'sub teachers';
+    }
+    if ($p === 'academies' || strpos($p, 'academies_') === 0) {
+        return 'sub academies';
+    }
+    if ($p === 'schedule' || strpos($p, 'schedule_') === 0) {
+        return 'sub schedule';
+    }
+    if ($p === 'notice' || $p === 'notice_view') {
+        return 'sub notice';
+    }
+    if ($p === 'edu' || $p === 'edu_view') {
+        return 'sub edu';
+    }
+    if ($p === 'admission' || $p === 'faq') {
+        return 'sub admission';
+    }
+    if ($p === 'consult') {
+        return 'sub admission';
+    }
+
+    return 'sub';
 }

@@ -5,6 +5,10 @@
     "gnuboard:build": "node scripts/build-gnuboard-theme.js",
     "gnuboard:setup": "node scripts/setup-gnuboard.js",
     "gnuboard:start": "docker compose -f gnuboard/docker-compose.yml up -d --build",
-    "gnuboard:stop": "docker compose -f gnuboard/docker-compose.yml down"
+    "gnuboard:stop": "docker compose -f gnuboard/docker-compose.yml down",
+    "gnuboard:deploy": "node scripts/deploy-gnuboard-ftp.js"
+  },
+  "devDependencies": {
+    "basic-ftp": "^5.2.1"
   }
 }

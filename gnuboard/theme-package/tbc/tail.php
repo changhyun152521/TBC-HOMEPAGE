@@ -1,9 +1,16 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
-?>
-    <div id="sh_ft_btns">
+
+$band_links = tbc_band_get_public_list();
+$band_primary_url = tbc_band_primary_url();
+$band_use_picker = count($band_links) > 1;
+?>    <div id="sh_ft_btns">
         <div class="btns">
-            <a class="band" href="<?php echo TBC_BAND_URL; ?>" target="_blank" rel="noopener noreferrer">BAND 바로가기</a>
+            <?php if ($band_use_picker) { ?>
+            <a class="band js-tbc-band-open" href="#">BAND 바로가기</a>
+            <?php } elseif ($band_primary_url) { ?>
+            <a class="band" href="<?php echo htmlspecialchars($band_primary_url, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer">BAND 바로가기</a>
+            <?php } ?>
         </div>
     </div>
     <footer id="sh_ft">
@@ -22,7 +29,11 @@ if (!defined('_GNUBOARD_')) exit;
                 <div class="left">
                     <img class="ft_logo" src="<?php echo G5_THEME_URL; ?>/img/common/logo_w.png" alt="더브레인코어">
                     <div class="ft_sns">
-                        <a href="<?php echo TBC_BAND_URL; ?>" class="ft_band" target="_blank" rel="noopener noreferrer" aria-label="더브레인코어 BAND"><img src="<?php echo G5_THEME_URL; ?>/img/common/band_icon_w.svg" alt="BAND"></a>
+                        <?php if ($band_use_picker) { ?>
+                        <a href="#" class="ft_band js-tbc-band-open" aria-label="더브레인코어 BAND"><img src="<?php echo G5_THEME_URL; ?>/img/common/band_icon_w.svg" alt="BAND"></a>
+                        <?php } elseif ($band_primary_url) { ?>
+                        <a href="<?php echo htmlspecialchars($band_primary_url, ENT_QUOTES, 'UTF-8'); ?>" class="ft_band" target="_blank" rel="noopener noreferrer" aria-label="더브레인코어 BAND"><img src="<?php echo G5_THEME_URL; ?>/img/common/band_icon_w.svg" alt="BAND"></a>
+                        <?php } ?>
                         <a href="<?php echo TBC_INSTA_URL; ?>" class="ft_insta" target="_blank" rel="noopener noreferrer" aria-label="더브레인코어 인스타그램"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
@@ -48,4 +59,5 @@ if (!defined('_GNUBOARD_')) exit;
 </script>
 
 <?php
+include_once(G5_THEME_PATH . '/partials/band-picker.php');
 include_once(G5_THEME_PATH . '/tail.sub.php');

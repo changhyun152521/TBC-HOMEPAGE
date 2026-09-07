@@ -218,12 +218,24 @@ body.teacher_pr_modal_open{overflow:hidden}
 }
 .teacher_pr_modal__media{
 	overflow:hidden;border-radius:14px;border:1px solid #e4e8ee;background:#fff;
-	min-height:180px;
+	min-height:180px;position:relative;
 }
 .teacher_pr_modal__media img{
 	display:block;width:100%;height:auto;opacity:0;transition:opacity .25s ease;
 }
 .teacher_pr_modal.is-ready .teacher_pr_modal__media img{opacity:1}
+.teacher_pr_modal__nav{
+	position:absolute;top:50%;transform:translateY(-50%);
+	width:42px;height:42px;border:none;border-radius:50%;
+	background:rgba(26,31,44,.72);color:#fff;font-size:28px;line-height:1;
+	cursor:pointer;z-index:2;transition:background .2s,transform .2s;
+}
+.teacher_pr_modal__nav:hover{background:rgba(51,64,117,.92);transform:translateY(-50%) scale(1.05)}
+.teacher_pr_modal__nav--prev{left:12px}
+.teacher_pr_modal__nav--next{right:12px}
+.teacher_pr_modal__counter{
+	margin:12px 0 0;text-align:center;font-size:14px;color:#64748b;
+}
 
 @media (max-width:768px){
 .teacher_pr_modal{padding:12px}

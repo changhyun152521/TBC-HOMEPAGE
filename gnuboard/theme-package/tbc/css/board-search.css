@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+/* 공지사항(board1001)·교육정보(board1006) 검색박스 공통
+   #sh_bo_sch ID는 페이지마다 1개이지만, 그누보드 전역 #stx 등과 충돌 방지를 위해 보드 ID로 스코프 */
+#board1001 .list_top,
+#board1006 .list_top {
+    margin-bottom: 30px;
+    text-align: right;
+}
+
+#board1001 #sh_bo_sch,
+#board1006 #sh_bo_sch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0 6px 0 0;
+    min-width: 0;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+#board1001 #sh_bo_sch form,
+#board1006 #sh_bo_sch form {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#board1001 #sh_bo_sch select,
+#board1006 #sh_bo_sch select {
+    flex: 0 0 96px;
+    width: 96px;
+    height: 40px;
+    margin: 0;
+    padding: 0 28px 0 10px;
+    border: none;
+    font-size: 14px;
+    color: #777;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23999' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E") calc(100% - 10px) center no-repeat;
+}
+
+#board1001 #sh_bo_sch input[type="text"],
+#board1006 #sh_bo_sch input[type="text"],
+#board1001 #sh_bo_sch input#stx,
+#board1006 #sh_bo_sch input#stx,
+#board1001 #sh_bo_sch .sch_input,
+#board1006 #sh_bo_sch .sch_input {
+    flex: 0 0 180px;
+    width: 180px;
+    height: 40px;
+    margin: 0;
+    padding-left: 8px;
+    border: none;
+    font-size: 14px;
+    color: #777;
+    box-sizing: border-box;
+}
+
+#board1001 #sh_bo_sch .sch_submit,
+#board1006 #sh_bo_sch .sch_submit {
+    flex: 0 0 auto;
+    min-width: 56px;
+    height: 34px;
+    margin: 0 4px 0 0;
+    padding: 0 10px;
+    border: none;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--primary, #0054a6);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+@media (max-width: 580px) {
+    #board1001 .list_top,
+    #board1006 .list_top {
+        padding: 0 10px;
+    }
+
+    #board1001 #sh_bo_sch,
+    #board1006 #sh_bo_sch {
+        display: flex;
+        width: 100%;
+    }
+
+    #board1001 #sh_bo_sch form,
+    #board1006 #sh_bo_sch form {
+        display: flex;
+        width: 100%;
+    }
+
+    #board1001 #sh_bo_sch select,
+    #board1006 #sh_bo_sch select {
+        flex: 0 0 96px;
+        width: 96px;
+    }
+
+    #board1001 #sh_bo_sch input[type="text"],
+    #board1006 #sh_bo_sch input[type="text"],
+    #board1001 #sh_bo_sch input#stx,
+    #board1006 #sh_bo_sch input#stx,
+    #board1001 #sh_bo_sch .sch_input,
+    #board1006 #sh_bo_sch .sch_input {
+        flex: 1 1 auto;
+        width: auto;
+        min-width: 0;
+    }
+}

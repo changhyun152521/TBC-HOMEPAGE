@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "cafe24": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "ftp-ssh-mcp@1"],
+      "env": {
+        "MCP_ENV_FILE": "${workspaceFolder}/.env.cafe24"
+      }
+    }
+  }
+}

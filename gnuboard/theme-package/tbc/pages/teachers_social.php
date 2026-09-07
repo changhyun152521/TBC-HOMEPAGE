@@ -63,16 +63,7 @@ if (!defined('_GNUBOARD_')) exit;
                                 풍부한 현장 경험과 체계적인 커리큘럼을 바탕으로 학생 개개인에 맞는 최적의 학습 방향을 제시합니다.
                             </p>
                         </div>
-                        <ul class="instructor_list">
-                            <li class="list01" data-aos="fade-up" style="justify-content:center;height:auto;padding:80px 40px;">
-                                <div class="left_txt" style="text-align:center;width:100%;">
-                                    <div class="l_name_wrap" style="margin-bottom:0;">
-                                        <span class="subject">해당 과목 강사진은 준비 중입니다.</span>
-                                        <b class="name">곧 업데이트됩니다</b>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <?php $tbc_teacher_subject = 'social'; include_once(G5_THEME_PATH . '/partials/teachers-list.php'); ?>
                     </div>
                 </div>
                 <!-- 서브페이지 [e] -->

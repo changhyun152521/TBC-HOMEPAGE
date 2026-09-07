@@ -13,6 +13,12 @@ if (!defined('_GNUBOARD_')) exit;
                 <div id="mainImg" data-aos="fade-in" style="background-image:url(<?php echo G5_THEME_URL; ?>/img/sub/bg_10.jpg);"></div>
             </div>
         </div>
+
+        <?php
+        $tbc_admission_nav = 'faq';
+        include_once(G5_THEME_PATH . '/partials/admission-aside.php');
+        ?>
+
         <div id="sh_content">
             <div class="pagecommon">
                 <div class="tit_area">
