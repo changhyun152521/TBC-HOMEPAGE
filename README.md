@@ -76,5 +76,10 @@ npx serve .
 | `npm run gnuboard:setup` | 로컬 그누보드 설치 (최초 1회) |
 | `npm run gnuboard:start` | Docker로 로컬 서버 실행 |
 | `npm run gnuboard:build` | apps/web 디자인 → 테마 반영 |
+| `npm run gnuboard:deploy` | 로컬 테마 → 카페24 서버 업로드 |
+| `npm run gnuboard:pull` | 카페24 서버 gnuboard5 → `gnuboard/production` 다운로드 |
+
+**서버 전체 코드 백업**: `gnuboard/production/` (카페24 `/gnuboard5/` 스냅샷)  
+**개발용 소스**: `gnuboard/theme-package/` (배포 전 원본)
 
 **초보자 가이드**: [docs/GNUBOARD_GUIDE.md](docs/GNUBOARD_GUIDE.md) — 그누보드가 뭔지, 설치·게시판·이전 방법을 친절히 설명합니다.
