@@ -1,0 +1,46 @@
+/* TBC 관리자: 좌측 메뉴 항상 펼침 */
+#container,
+#container.container-small {
+    padding-left: 220px !important;
+}
+
+#container_title,
+#container.container-small #container_title {
+    padding-left: 240px !important;
+}
+
+#gnb,
+#gnb.gnb_small {
+    max-width: 220px !important;
+}
+
+#gnb .gnb_li.on .gnb_oparea {
+    display: block !important;
+}
+
+#gnb.gnb_small .gnb_li.on .gnb_oparea {
+    display: block !important;
+}
+
+/* 메뉴 그룹이 하나뿐일 때(예: TBC 부관리자) 아이콘 대신 목록을 바로 표시 */
+#gnb .gnb_ul .gnb_li:only-child .btn_op {
+    display: none;
+}
+
+#gnb .gnb_ul .gnb_li:only-child .gnb_oparea {
+    display: block !important;
+    position: static;
+    left: auto;
+    width: 220px;
+    min-height: 100%;
+    box-shadow: none;
+    border-right: 1px solid #dbdbdb;
+}
+
+#gnb .gnb_ul .gnb_li:only-child ~ .gnb_li {
+    display: none;
+}
+
+#gnb .gnb_ul:has(.gnb_li:only-child) {
+    width: 220px;
+}

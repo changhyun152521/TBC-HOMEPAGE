@@ -86,8 +86,12 @@ async function main() {
     const installAdmissionRemote = `${baseDir}/gnuboard5/install-tbc-admission.php`;
     const installConsultLocal = path.join(ROOT, 'gnuboard', 'theme-package', 'install-tbc-consult.php');
     const installConsultRemote = `${baseDir}/gnuboard5/install-tbc-consult.php`;
+    const installAdminLocal = path.join(ROOT, 'gnuboard', 'theme-package', 'install-tbc-admin.php');
+    const installAdminRemote = `${baseDir}/gnuboard5/install-tbc-admin.php`;
   const upgradeLocal = path.join(ROOT, 'gnuboard', 'theme-package', 'upgrade-tbc-main.php');
   const upgradeRemote = `${baseDir}/gnuboard5/upgrade-tbc-main.php`;
+  const upgradeSiteTitleLocal = path.join(ROOT, 'gnuboard', 'theme-package', 'upgrade-tbc-site-title.php');
+  const upgradeSiteTitleRemote = `${baseDir}/gnuboard5/upgrade-tbc-site-title.php`;
 
   const client = new Client(120000);
   client.ftp.verbose = false;
@@ -125,6 +129,11 @@ async function main() {
     if (fs.existsSync(upgradeLocal)) {
       console.log(`upgrade-tbc-main.php 업로드 -> ${upgradeRemote}`);
       await client.uploadFrom(upgradeLocal, upgradeRemote);
+    }
+
+    if (fs.existsSync(upgradeSiteTitleLocal)) {
+      console.log(`upgrade-tbc-site-title.php 업로드 -> ${upgradeSiteTitleRemote}`);
+      await client.uploadFrom(upgradeSiteTitleLocal, upgradeSiteTitleRemote);
     }
 
     if (fs.existsSync(installGreetingLocal)) {
@@ -180,6 +189,11 @@ async function main() {
     if (fs.existsSync(installConsultLocal)) {
       console.log(`install-tbc-consult.php 업로드 -> ${installConsultRemote}`);
       await client.uploadFrom(installConsultLocal, installConsultRemote);
+    }
+
+    if (fs.existsSync(installAdminLocal)) {
+      console.log(`install-tbc-admin.php 업로드 -> ${installAdminRemote}`);
+      await client.uploadFrom(installAdminLocal, installAdminRemote);
     }
 
     console.log('완료.');

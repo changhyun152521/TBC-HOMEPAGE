@@ -7,3 +7,11 @@ desktop.ini
 .env
 node_modules/
 gnuboard/runtime/
+gnuboard/production/data/cache/
+gnuboard/production/data/session/
+gnuboard/production/data/tmp/
+gnuboard/production/data/backup/
+gnuboard/production/data/file/
+gnuboard/production/data/editor/
+gnuboard/production/data/member_image/
+gnuboard/production/data/dbconfig.php
